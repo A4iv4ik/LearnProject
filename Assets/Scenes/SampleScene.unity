@@ -239,6 +239,14 @@ PrefabInstance:
       propertyPath: close
       value: 
       objectReference: {fileID: 116300366}
+    - target: {fileID: 481399349387571860, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 621326848}
+    - target: {fileID: 481399349387571860, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
+      propertyPath: smooth
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 572761941680753498, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -303,6 +311,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 4.994
       objectReference: {fileID: 0}
+    - target: {fileID: 7477969062905596125, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 621326848}
     - target: {fileID: 8243459699472600849, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
       propertyPath: isOpen
       value: 1
@@ -311,6 +323,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9115858918112773181, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 621326848}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef75e81c53fee049926cbc523437c8d, type: 3}
 --- !u!1 &621326846
