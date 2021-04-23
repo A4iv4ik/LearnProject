@@ -4,46 +4,49 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-
-	public Transform anchor; 
-	public float distance = 20; 
-	public bool isOpen = false; 
-	public float openAngle = 120f;
-	public float closeAngle = 0f;
-	public float smooth = 2f;
-
-	private Transform target;
+	private KeyCode key = KeyCode.F;
+	[SerializeField]private Transform player;
+	[SerializeField] private Transform anchor; 
+	[SerializeField] private float distance = 2f; 
+	[SerializeField] private bool isOpen = false; 
+	[SerializeField] private float openAngle = 120f;
+	[SerializeField] private float closeAngle = 0f;
+	[SerializeField] private float smooth = 2f;
 
 	void Awake()
 	{
-		
+		isOpen = false;
 		
 	}
 
 	void Update()
 	{
-		if (isOpen)
+		if (Vector3.Distance(transform.position, player.position) < distance && Input.GetKeyDown(key))
 		{
+            if (isOpen)
+            {
+				isOpen = false;
+            }
+            else
+            {
+			isOpen = true;
+            }
+		}
+			if (isOpen)
+			{
+
+				Quaternion rotation = Quaternion.Euler(0, openAngle, 0);
+				anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
+			}
+			else
+			{
+				Quaternion rotation = Quaternion.Euler(0, closeAngle, 0);
+				anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
+			}
+
 			
-			Quaternion rotation = Quaternion.Euler(0, openAngle, 0);
-			anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
-		}
-		else
-		{
-			Quaternion rotation = Quaternion.Euler(0, closeAngle, 0);
-			anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
-		}
 		
-		if (target)
-		{
-			float dis = Vector3.Distance(transform.position, target.position);
-			if (dis > distance) enabled = false;
-		}
 	}
 
-	public void Invert(Transform player)
-	{
-		target = player;
-		isOpen = !isOpen;
-	}
+	
 }
