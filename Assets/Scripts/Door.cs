@@ -8,18 +8,15 @@ public class Door : MonoBehaviour
 	public Transform anchor; 
 	public float distance = 20; 
 	public bool isOpen = false; 
-	public float openAngle = 120;
-	public float closeAngle = 0;
-	public float smooth = 2;
+	public float openAngle = 120f;
+	public float closeAngle = 0f;
+	public float smooth = 2f;
 
 	private Transform target;
 
 	void Awake()
 	{
-		openAngle = Mathf.Abs(openAngle);
-		closeAngle = Mathf.Abs(closeAngle);
-		if (isOpen) anchor.localRotation = Quaternion.Euler(0, openAngle, 0);
-		enabled = false;
+		
 		
 	}
 
