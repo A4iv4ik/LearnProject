@@ -5,6 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 	private KeyCode key = KeyCode.F;
+	[SerializeField]private AudioSource open;
+	[SerializeField]private AudioSource close;
 	[SerializeField]private Transform player;
 	[SerializeField] private Transform anchor; 
 	[SerializeField] private float distance = 2f; 
@@ -18,7 +20,7 @@ public class Door : MonoBehaviour
 		isOpen = false;
 		
 	}
-
+	
 	void Update()
 	{
 		if (Vector3.Distance(transform.position, player.position) < distance && Input.GetKeyDown(key))
@@ -26,10 +28,13 @@ public class Door : MonoBehaviour
             if (isOpen)
             {
 				isOpen = false;
+				open.Play();
+			
             }
             else
             {
-			isOpen = true;
+			    isOpen = true;
+				close.Play();
             }
 		}
 			if (isOpen)
