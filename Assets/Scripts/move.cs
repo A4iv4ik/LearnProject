@@ -7,7 +7,8 @@ public class move : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float speed = 2f;
     [SerializeField] private float _MouseSensetive;
-    
+    [SerializeField] private Transform _camera;
+
     Vector3 _direction = Vector3.zero;
     float _angle;
     void Start()
@@ -16,23 +17,31 @@ public class move : MonoBehaviour
     }
     void Update()
     {
+      
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
         _angle = Input.GetAxis("Mouse X");
-        //_angle.y = Input.GetAxis("Mouse Y");
+        Camerarotator();
     }
     private void FixedUpdate()
     {
         Move();
-        Camerarotator();
     }
     private void Camerarotator()
     {
-        player.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
+        _camera.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
     }
     private void Move()
     {
         var _speed = _direction * Time.fixedDeltaTime * speed;
+        
         player.transform.Translate(_speed);
+        //
+        //if (_speed!=Vector3.zero)
+        //{
+        //player.transform.forward = _speed;
+        //    
+        //}
+
     }
 }

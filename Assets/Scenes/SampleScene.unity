@@ -363,6 +363,7 @@ MonoBehaviour:
   player: {fileID: 621326846}
   speed: 2
   _MouseSensetive: 100
+  _camera: {fileID: 621326848}
 --- !u!4 &621326848
 Transform:
   m_ObjectHideFlags: 0
