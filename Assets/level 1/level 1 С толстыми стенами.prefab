@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor: {fileID: 89441197}
   distance: 20
-  isOpen: 0
+  isOpen: 1
   openAngle: 120
   closeAngle: 0
   smooth: 2
@@ -756,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8902366229052977773, guid: 3e3f63dd9a9622d43a7a861b73538a2e, type: 3}
       propertyPath: m_Name
-      value: level 1
+      value: "level 1 \u0421 \u0442\u043E\u043B\u0441\u0442\u044B\u043C\u0438 \u0441\u0442\u0435\u043D\u0430\u043C\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 8902366229056910731, guid: 3e3f63dd9a9622d43a7a861b73538a2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
