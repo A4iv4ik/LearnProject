@@ -8,19 +8,19 @@ public class move : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
+ 
 
+    
     Vector3 _direction = Vector3.zero;
     float _angle;
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
       
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
         _angle = Input.GetAxis("Mouse X");
+    
         Camerarotator();
     }
     private void FixedUpdate()
@@ -34,14 +34,6 @@ public class move : MonoBehaviour
     private void Move()
     {
         var _speed = _direction * Time.fixedDeltaTime * speed;
-        
         player.transform.Translate(_speed);
-        //
-        //if (_speed!=Vector3.zero)
-        //{
-        //player.transform.forward = _speed;
-        //    
-        //}
-
     }
 }
