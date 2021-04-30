@@ -19,6 +19,14 @@ public class move : MonoBehaviour
         _direction.z = Input.GetAxis("Vertical");
         _angle = Input.GetAxis("Mouse X");
         Camerarotator();
+        while(true)
+        {
+         
+        
+        }
+
+
+
     }
     private void FixedUpdate()
     {
