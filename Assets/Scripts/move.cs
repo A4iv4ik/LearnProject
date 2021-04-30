@@ -9,9 +9,16 @@ public class move : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject magic;
     Vector3 _direction = Vector3.zero;
+    
     float _angle;
-
+    private Rigidbody rg;
+    private void Awake()
+    {
+        rg = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         
@@ -19,6 +26,19 @@ public class move : MonoBehaviour
         _direction.z = Input.GetAxis("Vertical");
         _angle = Input.GetAxis("Mouse X");
         Camerarotator();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Instantiate(prefab,player.transform.position-transform.forward*1.5f,Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Instantiate(magic, player.transform.position + transform.forward * 1.5f, player.transform.rotation);
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+           
+            rg.AddForce(Vector3.up*8f, ForceMode.Impulse);
+        }
     }
     private void FixedUpdate()
     {
