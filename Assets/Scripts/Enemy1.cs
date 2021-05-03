@@ -29,7 +29,7 @@ public class Enemy1 : MonoBehaviour
             {
                  color = Color.green;
                 transform.LookAt(_player);
-                if (Vector3.Distance(transform.position,_player.position)>2f)
+                if (Vector3.Distance(transform.position,_player.position)>3f)
                 {
                 transform.position=Vector3.MoveTowards(transform.position,_player.position,3f*Time.deltaTime);
                 }
