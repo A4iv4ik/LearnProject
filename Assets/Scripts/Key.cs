@@ -9,10 +9,12 @@ public class Key : MonoBehaviour
     [SerializeField] private KeyCode key = KeyCode.F;
     [SerializeField] private AudioSource take;
     public static bool iskay = false;
-    [SerializeField] Transform _player;
-    //Transform _player = GameObject.FindWithTag("Player").transform;
+     Transform _player;
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
     void Update()
     {
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))

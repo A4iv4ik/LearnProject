@@ -214,7 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 8166649900701673080}
   close: {fileID: 3309727226764761321}
-  player: {fileID: 0}
   anchor: {fileID: 8254277965096356643}
   distance: 2
   isOpen: 0
@@ -235,7 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 8166649900701673080}
   close: {fileID: 3309727226764761321}
-  player: {fileID: 0}
   anchor: {fileID: 8254277965096356643}
   distance: 2
   isOpen: 0

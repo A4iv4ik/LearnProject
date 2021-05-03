@@ -5,25 +5,25 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 	private KeyCode key = KeyCode.F;
-	[SerializeField]private AudioSource open;
-	[SerializeField]private AudioSource close;
-	[SerializeField]private Transform player;
+	[SerializeField] private AudioSource open;
+	[SerializeField] private AudioSource close;
 	[SerializeField] private Transform anchor; 
 	[SerializeField] private float distance = 2f; 
 	[SerializeField] private bool isOpen = false; 
 	[SerializeField] private float openAngle = 120f;
 	[SerializeField] private float closeAngle = 0f;
 	[SerializeField] private float smooth = 2f;
+	private Transform _player;
 
 	void Awake()
 	{
 		isOpen = false;
-		
+		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 	
 	void Update()
 	{
-		if (Vector3.Distance(transform.position, player.position) < distance && Input.GetKeyDown(key))
+		if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))
 		{
             if (isOpen)
             {

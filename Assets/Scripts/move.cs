@@ -37,7 +37,7 @@ public class move : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
            
-            rg.AddForce(Vector3.up*8f, ForceMode.Impulse);
+            rg.AddForce(Vector3.up*4f, ForceMode.Impulse);
         }
     }
     private void FixedUpdate()
