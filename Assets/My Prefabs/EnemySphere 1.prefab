@@ -138,6 +138,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  _player: {fileID: 0}
 --- !u!114 &4470706545784607476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75ac99a3a9a48b43919ccfe33c8c36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 0}
+  waypoints: []
   _player: {fileID: 0}
-  _mask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &3436795766689151360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,11 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502c9a51fd7e3974db91cb1336c3a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 0}
+  waypoints: []
   _player: {fileID: 0}
-  _mask:
-    serializedVersion: 2
-    m_Bits: 0
   magic: {fileID: 0}
+  istarget: 0
 --- !u!54 &4470706545784607477
 Rigidbody:
   m_ObjectHideFlags: 0

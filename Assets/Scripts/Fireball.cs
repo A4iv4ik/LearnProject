@@ -9,11 +9,13 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody>();
-        rg.AddForce(Vector3.forward * 30, ForceMode.Impulse);
+        rg.AddForce(transform.forward * 30, ForceMode.Impulse);
+        StartCoroutine(Destroy());
     }
-
-    void Update()
+    private IEnumerator Destroy()
     {
-        
+        yield return new WaitForSeconds(3f);
+        Object.Destroy(gameObject);
     }
 }
+

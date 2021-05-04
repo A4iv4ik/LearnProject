@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class move : MonoBehaviour
+public class Charapter : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private float speed = 2f;

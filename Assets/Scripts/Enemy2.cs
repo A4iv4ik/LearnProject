@@ -59,65 +59,13 @@ public class Enemy2 : MonoBehaviour
         {
             while (true)
             {
-             yield return new WaitForSeconds(1f);
+             yield return new WaitForSeconds(3f);
                 if (istarget)
                 {
-                    Instantiate(magic, transform.position  * 1f, transform.rotation);
+                    Instantiate(magic, transform.position+transform.forward, transform.rotation);
                 }
             }
 
 }
-
- //   [SerializeField] private Transform _player;
- //   private Color color;
- //   [SerializeField] private LayerMask _mask;
- //   [SerializeField] private GameObject magic;
- //   bool istarget;
- //   WaypointsPatrol script;
- //   private Component f;
- //   private void Awake()
- //   {
- //       script = gameObject.GetComponent<WaypointsPatrol>();
- //       StartCoroutine("Fire");
- //       _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
- //   }
- //   private void FixedUpdate()
- //   {
- //       RaycastHit hit;
- //
- //       var startPos = transform.position;
- //       var dir = _player.position - startPos;
- //
- //       var rayCast = Physics.Raycast(transform.position, _player.position - startPos, out hit, Mathf.Infinity);
- //
- //       if (rayCast)
- //       {
- //           if (hit.collider.gameObject.CompareTag("Player"))
- //           {
- //               color = Color.green;
- //               transform.LookAt(_player);
- //               istarget = true;
- //
- //           }
- //           else
- //           {
- //               color = Color.red;
- //               istarget = false;
- //           }
- //       }
- //       Debug.DrawRay(startPos, _player.position - startPos, color);
- //   }
- //  private IEnumerable Fire()
- //  {
- //       yield return new WaitForSeconds();
- //      while (true)
- //      {
- //          if (istarget)
- //          {
- //              Instantiate(magic, transform.position + transform.forward * 1.5f, transform.rotation);
- //          }
- //      }
- //  }
-        
 }
 
