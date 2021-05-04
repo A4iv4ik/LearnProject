@@ -13,11 +13,11 @@ public class Enemy2 : MonoBehaviour
     private Color color;
     private Vector3 _targetpoint;
     int index;
-    private bool istarget;
+    [SerializeField]private bool istarget;
 
     void Start()
     {
-        StartCoroutine("Fire");
+        StartCoroutine(Fire());
         navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -37,7 +37,7 @@ public class Enemy2 : MonoBehaviour
             {
                 color = Color.green;
                 transform.LookAt(_player);
-                
+                istarget = true;
 
             }
             else
@@ -48,21 +48,21 @@ public class Enemy2 : MonoBehaviour
                     index = (index + 1) % waypoints.Length;
                     _targetpoint = waypoints[index].position;
                 }
-
+                istarget = false;
             }
             Debug.DrawRay(startPos, _player.position - startPos, color);
 
             navMeshAgent.SetDestination(_targetpoint);
         }
     }
-    private IEnumerable Fire()
+     private IEnumerator Fire()
         {
             while (true)
             {
-             yield return new WaitForSeconds(3f);
+             yield return new WaitForSeconds(1f);
                 if (istarget)
                 {
-                    Instantiate(magic, transform.position + transform.forward * 1.5f, transform.rotation);
+                    Instantiate(magic, transform.position  * 1f, transform.rotation);
                 }
             }
 
