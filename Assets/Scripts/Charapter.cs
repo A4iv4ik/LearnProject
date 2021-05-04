@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Charapter : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
+    [SerializeField]private float health = 100f;
+
     Vector3 _direction = Vector3.zero;
-    
     float _angle;
     private Rigidbody rg;
     private void Awake()
@@ -40,17 +42,21 @@ public class Charapter : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
            
-            rg.AddForce(Vector3.up*4f, ForceMode.Impulse);
+            rg.AddForce(Vector3.up*400f, ForceMode.Impulse);
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            _animator.SetTrigger("Attack");
+            _animator.SetTrigger("New Trigger");
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            _animator.SetBool("New Bool", false);
         }
     }
     private void FixedUpdate()
     {
         Move();
-        
+        Death();
     }
     private void Camerarotator()
     {
@@ -61,6 +67,21 @@ public class Charapter : MonoBehaviour
         var _speed = _direction * Time.fixedDeltaTime * speed;
         player.transform.Translate(_speed);
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Enemy weapon")
+        {
+            health -=5;
+            Object.Destroy(other);
+        }
+    }
+    private void Death()
+    {
+        if (health<=0)
+        {
+            health = 100;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
 

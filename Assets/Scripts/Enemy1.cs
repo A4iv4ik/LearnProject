@@ -7,10 +7,12 @@ public class Enemy1 : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
-    [SerializeField] private Transform _player;
+    private Transform _player;
+    private float Health=20f;
     private Color color;
     private Vector3 _targetpoint;
     int index;
+    
 
     void Start()
     {
@@ -19,6 +21,22 @@ public class Enemy1 : MonoBehaviour
     }
 
     void FixedUpdate()
+    {
+        Move();
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Enemy weapon")
+        {
+            Health -= 5;
+            if (Health<=0)
+            {
+                Object.Destroy(gameObject);
+            }
+        }
+    }
+    private void Move()
     {
         RaycastHit hit;
 
@@ -51,7 +69,6 @@ public class Enemy1 : MonoBehaviour
             navMeshAgent.SetDestination(_targetpoint);
         }
     }
-
 
 }
 

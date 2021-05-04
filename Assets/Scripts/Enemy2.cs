@@ -10,6 +10,7 @@ public class Enemy2 : MonoBehaviour
     public Transform[] waypoints;
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject magic;
+    [SerializeField]private float Health=20;
     private Color color;
     private Vector3 _targetpoint;
     int index;
@@ -55,7 +56,18 @@ public class Enemy2 : MonoBehaviour
             navMeshAgent.SetDestination(_targetpoint);
         }
     }
-     private IEnumerator Fire()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy weapon")
+        {
+            Health -= 5;
+            if (Health <= 0)
+            {
+                Object.Destroy(gameObject);
+            }
+        }
+    }
+    private IEnumerator Fire()
         {
             while (true)
             {

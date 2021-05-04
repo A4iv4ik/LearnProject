@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4470706545784607476}
   - component: {fileID: 3436795766689151360}
   - component: {fileID: 4470706545784607477}
+  - component: {fileID: 7743715312925748517}
   m_Layer: 0
   m_Name: EnemySphere 1
   m_TagString: Untagged
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
   waypoints: []
-  _player: {fileID: 0}
 --- !u!114 &3436795766689151360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   waypoints: []
   _player: {fileID: 0}
   magic: {fileID: 0}
+  Health: 20
   istarget: 0
 --- !u!54 &4470706545784607477
 Rigidbody:
@@ -187,3 +188,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &7743715312925748517
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470706545784607435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
