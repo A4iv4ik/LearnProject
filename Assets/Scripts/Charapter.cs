@@ -46,13 +46,17 @@ public class Charapter : MonoBehaviour
         {
             rg.AddForce(Vector3.up*400f, ForceMode.Impulse);
         }
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Mathf.Approximately(_direction.x, 0) && Mathf.Approximately(_direction.z, 0))
         {
-            _animator.SetTrigger("New Trigger");
+            _animator.SetBool("IsWalk", false);
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        else 
         {
-            _animator.SetBool("New Bool", false);
+            _animator.SetBool("IsWalk", true);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            _animator.SetTrigger("Attack");
         }
     }
     private void FixedUpdate()
