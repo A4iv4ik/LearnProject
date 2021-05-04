@@ -1,46 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy1 : MonoBehaviour
 {
+    public NavMeshAgent navMeshAgent;
+    public Transform[] waypoints;
     [SerializeField] private Transform _player;
     private Color color;
-    [SerializeField] private LayerMask _mask;
-     WaypointsPatrol script;
-    private void Awake()
+    private Vector3 _targetpoint;
+    int index;
+
+    void Start()
     {
-          script = gameObject.GetComponent<WaypointsPatrol>();
-        
+        navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
         RaycastHit hit;
 
         var startPos = transform.position;
-        var dir = _player.position - startPos;
 
-        var rayCast = Physics.Raycast(transform.position, _player.position-startPos, out hit, Mathf.Infinity);
+
+        var rayCast = Physics.Raycast(transform.position, _player.position - startPos, out hit, Mathf.Infinity);
 
         if (rayCast)
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                 color = Color.green;
+                color = Color.green;
                 transform.LookAt(_player);
-                if (Vector3.Distance(transform.position,_player.position)>3f)
-                {
-                transform.position=Vector3.MoveTowards(transform.position,_player.position,3f*Time.deltaTime);
-                }
+                _targetpoint = _player.position;
+
             }
             else
             {
                 color = Color.red;
+                if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance * 2)
+                {
+                    index = (index + 1) % waypoints.Length;
+                    _targetpoint = waypoints[index].position;
+                }
 
             }
-        }
-        Debug.DrawRay(startPos,_player.position - startPos,color);
+            Debug.DrawRay(startPos, _player.position - startPos, color);
 
+            navMeshAgent.SetDestination(_targetpoint);
+        }
     }
+
+
 }
+
