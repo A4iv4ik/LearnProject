@@ -11,6 +11,7 @@ public class move : MonoBehaviour
     [SerializeField] private Transform _camera;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
+    [SerializeField] private Animator _animator;
     Vector3 _direction = Vector3.zero;
     
     float _angle;
@@ -18,7 +19,9 @@ public class move : MonoBehaviour
     private void Awake()
     {
         rg = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
+
     void Update()
     {
         
@@ -38,6 +41,10 @@ public class move : MonoBehaviour
         {
            
             rg.AddForce(Vector3.up*4f, ForceMode.Impulse);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            _animator.SetTrigger("Attack");
         }
     }
     private void FixedUpdate()
