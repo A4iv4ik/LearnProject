@@ -14,6 +14,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField]private float health = 100f;
+    [SerializeField] bool rayCast;
 
     Vector3 _direction = Vector3.zero;
     float _angle;
@@ -26,7 +27,9 @@ public class Charapter : MonoBehaviour
 
     void Update()
     {
-        
+         rayCast = Physics.Raycast(transform.position+Vector3.up/100,Vector3.down, 0.5f);
+        Debug.DrawRay(transform.position,Vector3.down,Color.green,3f);
+
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
         _angle = Input.GetAxis("Mouse X");
@@ -39,9 +42,8 @@ public class Charapter : MonoBehaviour
         {
             Instantiate(magic, player.transform.position + transform.forward * 1.5f, player.transform.rotation);
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")&& rayCast)
         {
-           
             rg.AddForce(Vector3.up*400f, ForceMode.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.J))
