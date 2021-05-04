@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5977b62fcb42545a6bc59894e22a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 621326846}
+  player: {fileID: 1274702188}
   speed: 5
   _MouseSensetive: 100
   _camera: {fileID: 621326848}
@@ -277,7 +277,7 @@ Transform:
   m_LocalPosition: {x: 2.45, y: 0, z: 8.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2129971615}
+  - {fileID: 901855630}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -493,9 +493,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2129971615}
-  m_RootOrder: 2
+  m_Children:
+  - {fileID: 949808577}
+  - {fileID: 2129971615}
+  m_Father: {fileID: 621326848}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949808576
 GameObject:
@@ -526,8 +528,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: -1.9344578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2129971615}
-  m_RootOrder: 3
+  m_Father: {fileID: 901855630}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!81 &949808578
 AudioListener:
@@ -678,7 +680,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 621326848}
+    m_TransformParent: {fileID: 901855630}
     m_Modifications:
     - target: {fileID: 100050, guid: ba24e610e0a338545b447ff44a3cf1cc, type: 3}
       propertyPath: m_Name
@@ -686,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: ba24e610e0a338545b447ff44a3cf1cc, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: ba24e610e0a338545b447ff44a3cf1cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,6 +940,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1274702188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100050, guid: ba24e610e0a338545b447ff44a3cf1cc, type: 3}
+  m_PrefabInstance: {fileID: 990094930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1288674537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9168959671697575190, guid: 7b4d27dbdcf430b49bc4e3dec49a97a9, type: 3}

@@ -71,7 +71,8 @@ public class Charapter : MonoBehaviour
     private void Move()
     {
         var _speed = _direction * Time.fixedDeltaTime * speed;
-        player.transform.Translate(_speed);
+        player.transform.LookAt(transform.position+_direction) ;
+        transform.Translate(_speed);
     }
     private void OnTriggerEnter(Collider other)
     {
