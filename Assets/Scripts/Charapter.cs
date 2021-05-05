@@ -16,6 +16,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField] private float health = 100f;
+    private bool ishield;
     Component sword;
     [SerializeField] bool rayCast;
     Vector3 _direction = Vector3.zero;
@@ -71,6 +72,7 @@ public class Charapter : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             damage = 1f;
+            ishield = false;
             up = !up;
             _animator.SetBool("Block", true);
             
@@ -78,6 +80,7 @@ public class Charapter : MonoBehaviour
         }
         else
         {
+            ishield = true;
             damage = 5f;
             _animator.SetBool("Block", false);
         }
@@ -117,8 +120,11 @@ public class Charapter : MonoBehaviour
     }
     private void Move()
     {
+        if (ishield)
+        {
         var _speed = _direction * Time.fixedDeltaTime * speed;
         transform.Translate(_speed);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
