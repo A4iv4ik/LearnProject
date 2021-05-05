@@ -8,7 +8,7 @@ public class Enemy1 : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
     private Transform _player;
-    private float Health=20f;
+    [SerializeField]private float Health=20f;
     private Color color;
     private Vector3 _targetpoint;
     private bool hurt;
