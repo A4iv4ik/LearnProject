@@ -23,6 +23,7 @@ public class Charapter : MonoBehaviour
     float _angle;
     private Rigidbody rg;
     private bool up = false;
+
     private void Awake()
     {
         rg = GetComponent<Rigidbody>();
@@ -69,7 +70,7 @@ public class Charapter : MonoBehaviour
             damage = 1f;
             up = !up;
 
-            if (up == true)
+            if (up)
             {
                 _animator.SetBool("Block", true);
             }
@@ -128,7 +129,7 @@ public class Charapter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Enemy weapon")
-        {
+        {       
             health -=damage;
             Object.Destroy(other);
         }
