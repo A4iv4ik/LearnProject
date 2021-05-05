@@ -12,6 +12,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private GameObject magic;
     [SerializeField]private float Health=20;
     [SerializeField] private AudioSource getdamage;
+    [SerializeField]private bool hurt;
     private Color color;
     private Vector3 _targetpoint;
     int index;
@@ -26,6 +27,11 @@ public class Enemy2 : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine(Getattack());
+            hurt = true;
+        }
         RaycastHit hit;
 
         var startPos = transform.position;
@@ -59,15 +65,19 @@ public class Enemy2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy weapon")
+
+        
+        if (other.tag == "Enemy weapon"&&hurt)
         {
             Health -= 5;
             getdamage.Play();
+            hurt = false;
             if (Health <= 0)
             {
                 Object.Destroy(gameObject);
             }
         }
+        
     }
     private IEnumerator Fire()
         {
@@ -79,7 +89,13 @@ public class Enemy2 : MonoBehaviour
                     Instantiate(magic, transform.position+transform.forward, transform.rotation);
                 }
             }
-
-}
+            
+        }
+    private IEnumerator Getattack()
+    {
+        
+        yield return new WaitForSeconds(0.5f);
+        hurt = false;
+    }
 }
 

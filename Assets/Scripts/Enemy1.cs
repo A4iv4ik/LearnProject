@@ -11,6 +11,7 @@ public class Enemy1 : MonoBehaviour
     private float Health=20f;
     private Color color;
     private Vector3 _targetpoint;
+    private bool hurt;
     [SerializeField]private AudioSource getdamage;
     int index;
     
@@ -24,14 +25,20 @@ public class Enemy1 : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine(Getattack());
+            hurt = true;
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Enemy weapon")
+        if (other.tag=="Enemy weapon"&&hurt)
         {
             Health -= 5;
             getdamage.Play();
+            hurt = false;
             if (Health<=0)
             {
                 Object.Destroy(gameObject);
@@ -70,6 +77,12 @@ public class Enemy1 : MonoBehaviour
 
             navMeshAgent.SetDestination(_targetpoint);
         }
+    }
+    private IEnumerator Getattack()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        hurt = false;
     }
 
 }

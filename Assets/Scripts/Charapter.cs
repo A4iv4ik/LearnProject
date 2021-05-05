@@ -133,8 +133,15 @@ public class Charapter : MonoBehaviour
         if (health<=0)
         {
             health = 100;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            StartCoroutine(death());
         }
+    }
+    private IEnumerator death()
+    {
+        yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 }
 
