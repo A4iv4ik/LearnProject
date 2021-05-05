@@ -11,6 +11,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
     [SerializeField] private AudioSource sword;
+    [SerializeField] private AudioSource fight;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
@@ -69,25 +70,16 @@ public class Charapter : MonoBehaviour
         {
             damage = 1f;
             up = !up;
-
-            if (up)
-            {
-                _animator.SetBool("Block", true);
-            }
-            else
-            {
-                _animator.SetBool("Block", false);
-
-            }
+            _animator.SetBool("Block", true);
+            
+          
         }
         else
         {
             damage = 5f;
+            _animator.SetBool("Block", false);
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-           
-        }
+       
     }
     private void FixedUpdate()
     {
