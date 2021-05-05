@@ -22,6 +22,7 @@ public class Charapter : MonoBehaviour
     float ang;
     float _angle;
     private Rigidbody rg;
+    private bool up = false;
     private void Awake()
     {
         rg = GetComponent<Rigidbody>();
@@ -66,10 +67,25 @@ public class Charapter : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             damage = 1f;
+            up = !up;
+
+            if (up == true)
+            {
+                _animator.SetBool("Block", true);
+            }
+            else
+            {
+                _animator.SetBool("Block", false);
+
+            }
         }
         else
         {
             damage = 5f;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+           
         }
     }
     private void FixedUpdate()
