@@ -11,6 +11,7 @@ public class Enemy1 : MonoBehaviour
     private float Health=20f;
     private Color color;
     private Vector3 _targetpoint;
+    [SerializeField]private AudioSource getdamage;
     int index;
     
 
@@ -30,6 +31,7 @@ public class Enemy1 : MonoBehaviour
         if (other.tag=="Enemy weapon")
         {
             Health -= 5;
+            getdamage.Play();
             if (Health<=0)
             {
                 Object.Destroy(gameObject);

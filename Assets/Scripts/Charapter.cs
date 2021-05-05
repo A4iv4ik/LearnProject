@@ -10,12 +10,13 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
-    [SerializeField] private AudioSource sword;
+    [SerializeField] private AudioSource swordsound;
     [SerializeField] private AudioSource fight;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
-    [SerializeField]private float health = 100f;
+    [SerializeField] private float health = 100f;
+    Component sword;
     [SerializeField] bool rayCast;
     Vector3 _direction = Vector3.zero;
     Quaternion m_Rotation;
@@ -27,6 +28,7 @@ public class Charapter : MonoBehaviour
 
     private void Awake()
     {
+        
         rg = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
     }
@@ -64,7 +66,7 @@ public class Charapter : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _animator.SetTrigger("Attack");
-            sword.Play();
+            swordsound.Play();
         }
         if (Input.GetMouseButton(1))
         {

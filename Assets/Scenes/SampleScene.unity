@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 99d0ccff72649fb4c876987f7b23dd15, type: 2}
---- !u!1 &99581923 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4657598056869505744, guid: 7b4d27dbdcf430b49bc4e3dec49a97a9, type: 3}
-  m_PrefabInstance: {fileID: 2310741048236761574}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &101257737
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,9 +224,9 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 3267986578408546921, guid: 1a1e3a91f4ebb724e9bf78f4e40c7d2b, type: 3}
   m_PrefabInstance: {fileID: 671337658}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &621326846 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8857830511333333393, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
+--- !u!82 &621326847 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8857830511333333610, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
   m_PrefabInstance: {fileID: 8857830511820367983}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &621326848 stripped
@@ -239,20 +234,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
   m_PrefabInstance: {fileID: 8857830511820367983}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &621326854
-MonoBehaviour:
+--- !u!1 &651113538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4470706545784607435, guid: 1a1e3a91f4ebb724e9bf78f4e40c7d2b, type: 3}
+  m_PrefabInstance: {fileID: 1438475773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &651113547
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621326846}
+  m_GameObject: {fileID: 651113538}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b433807406431a4cbd97c8d8522a507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 99581923}
-  fight: {fileID: 1274702189}
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a383f5375901f344bbd3af440302dc49, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &671337658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1276,6 +1358,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6611533308603712516, guid: 3a77446c413af46478e690070d9fd657, type: 3}
     - target: {fileID: 3436795766689151360, guid: 1a1e3a91f4ebb724e9bf78f4e40c7d2b, type: 3}
+      propertyPath: getdamage
+      value: 
+      objectReference: {fileID: 651113547}
+    - target: {fileID: 3436795766689151360, guid: 1a1e3a91f4ebb724e9bf78f4e40c7d2b, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -1854,6 +1940,10 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8857830511333333392, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
+      propertyPath: swordsound
+      value: 
+      objectReference: {fileID: 621326847}
     - target: {fileID: 8857830511333333393, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_Name
       value: player
@@ -1872,7 +1962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.63
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1880,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12
+      value: 38.1
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1912,7 +2002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511557517051, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5138910209177279211, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
