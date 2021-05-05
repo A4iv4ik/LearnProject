@@ -10,13 +10,16 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
+    [SerializeField] private AudioSource sword;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField]private float health = 100f;
     [SerializeField] bool rayCast;
-
     Vector3 _direction = Vector3.zero;
+    Quaternion m_Rotation;
+    private float damage;
+    float ang;
     float _angle;
     private Rigidbody rg;
     private void Awake()
@@ -32,6 +35,7 @@ public class Charapter : MonoBehaviour
 
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
+        _direction=_direction.normalized;
         _angle = Input.GetAxis("Mouse X");
         Camerarotator();
         if (Input.GetKeyDown(KeyCode.Q))
@@ -57,6 +61,15 @@ public class Charapter : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _animator.SetTrigger("Attack");
+            sword.Play();
+        }
+        if (Input.GetMouseButton(1))
+        {
+            damage = 1f;
+        }
+        else
+        {
+            damage = 5f;
         }
     }
     private void FixedUpdate()
@@ -66,19 +79,41 @@ public class Charapter : MonoBehaviour
     }
     private void Camerarotator()
     {
+        if (_direction.x == 1)
+        {
+        
+            ang = 90;
+            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 90, 0), Time.fixedDeltaTime * 10f);
+        }
+        if (_direction.x == -1)
+        {
+            ang = 270;
+            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 270, 0), Time.fixedDeltaTime * 10f);
+        }
+        if (_direction.z == 1)
+        {
+            ang = 0;
+            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.fixedDeltaTime * 10f);
+        }
+        if (_direction.z == -1)
+        {
+            ang = 180;
+            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 180, 0), Time.fixedDeltaTime * 10f);
+        }
+        player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, ang, 0), Time.fixedDeltaTime * 10f);
+
         _camera.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
     }
     private void Move()
     {
         var _speed = _direction * Time.fixedDeltaTime * speed;
-        player.transform.LookAt(transform.position+_direction) ;
         transform.Translate(_speed);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Enemy weapon")
         {
-            health -=5;
+            health -=damage;
             Object.Destroy(other);
         }
     }
