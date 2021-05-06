@@ -15,7 +15,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float health = 100f;
+    public float health = 100f;
     private bool ishield;
     Component sword;
     [SerializeField] bool rayCast;
@@ -131,7 +131,7 @@ public class Charapter : MonoBehaviour
         if (other.tag=="Enemy weapon")
         {       
             health -=damage;
-            Object.Destroy(other);
+           
         }
     }
     private void Death()
