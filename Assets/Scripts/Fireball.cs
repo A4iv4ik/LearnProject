@@ -10,7 +10,11 @@ public class Fireball : MonoBehaviour
     {
         rg = GetComponent<Rigidbody>();
         rg.AddForce(transform.forward * 30, ForceMode.Impulse);
-        StartCoroutine(Destroy());
+        //StartCoroutine(Destroy());
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Object.Destroy(gameObject);
     }
     private IEnumerator Destroy()
     {

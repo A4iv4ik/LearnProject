@@ -10,7 +10,8 @@ public class Enemy2 : MonoBehaviour
     public Transform[] waypoints;
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject magic;
-    [SerializeField]private float Health=20;
+    [SerializeField] private GameObject Magicstuf;
+    [SerializeField] private float Health=20;
     [SerializeField] private AudioSource getdamage;
     [SerializeField]private bool hurt;
     private Color color;
@@ -86,7 +87,7 @@ public class Enemy2 : MonoBehaviour
              yield return new WaitForSeconds(3f);
                 if (istarget)
                 {
-                    Instantiate(magic, transform.position+transform.forward, transform.rotation);
+                    Instantiate(magic, Magicstuf.transform.position+transform.forward, transform.rotation);
                 }
             }
             

@@ -15,7 +15,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
-    public float health = 100f;
+    public float health = 1000f;
     private bool ishield;
     Component sword;
     [SerializeField] bool rayCast;
@@ -97,25 +97,21 @@ public class Charapter : MonoBehaviour
         {
         
             ang = 90;
-            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 90, 0), Time.fixedDeltaTime * 10f);
         }
         if (_direction.x == -1)
         {
             ang = 270;
-            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 270, 0), Time.fixedDeltaTime * 10f);
         }
         if (_direction.z == 1)
         {
             ang = 0;
-            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.fixedDeltaTime * 10f);
         }
         if (_direction.z == -1)
         {
             ang = 180;
-            //player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, 180, 0), Time.fixedDeltaTime * 10f);
         }
         player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, ang, 0), Time.fixedDeltaTime * 10f);
-
+        //player.transform.LookAt(transform.position+_direction);
         _camera.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
     }
     private void Move()
@@ -132,6 +128,11 @@ public class Charapter : MonoBehaviour
         {       
             health -=damage;
            
+        }
+        if (other.tag == "Enemy magic")
+        {
+            health -= damage*3;
+
         }
     }
     private void Death()

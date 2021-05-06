@@ -10,6 +10,7 @@ public class Enemy1 : MonoBehaviour
     public Transform[] waypoints;
     private Transform _player;
     private Animator _animator;
+    [SerializeField]private GameObject Axe;
     [SerializeField]private float Health=50f;
     [SerializeField]private AudioSource getdamage;
     private Color color;
@@ -20,6 +21,7 @@ public class Enemy1 : MonoBehaviour
 
     void Start()
     {
+        Axe.SetActive(false);
         _animator = GetComponent<Animator>();
         navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -51,6 +53,8 @@ public class Enemy1 : MonoBehaviour
         {
             
             _animator.SetTrigger("Attack");
+            Axe.SetActive(true);
+            StartCoroutine(Attack());
         }
         
     }
@@ -94,6 +98,10 @@ public class Enemy1 : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         hurt = false;
     }
-
+    private IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Axe.SetActive(false);
+    }
 }
 
