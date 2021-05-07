@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 710066152693955085}
   - component: {fileID: 881699576440982288}
   - component: {fileID: 4084086919317003232}
+  - component: {fileID: 2163460743846463606}
   m_Layer: 0
   m_Name: PT_Medieval_Plague_Doctor (1)
   m_TagString: Untagged
@@ -191,7 +192,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -336,6 +337,20 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &2163460743846463606
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217612055859801479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &226581535585813707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,6 +6149,7 @@ GameObject:
   - component: {fileID: 2162868518148427092}
   - component: {fileID: 1008494841703004052}
   - component: {fileID: 2581898445824238007}
+  - component: {fileID: 5804700399212215798}
   m_Layer: 0
   m_Name: PT_Medieval_Plague_Doctor
   m_TagString: Untagged
@@ -6332,6 +6348,20 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5804700399212215798
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030059167800219020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5064123105674284035
 GameObject:
   m_ObjectHideFlags: 0
