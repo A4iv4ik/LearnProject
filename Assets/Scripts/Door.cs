@@ -13,10 +13,12 @@ public class Door : MonoBehaviour
 	[SerializeField] private float openAngle = 120f;
 	[SerializeField] private float closeAngle = 0f;
 	[SerializeField] private float smooth = 2f;
+	//[SerializeField] private GameObject Panel;
 	private Transform _player;
 
 	void Awake()
 	{
+		//Panel.SetActive(false);
 		isOpen = false;
 		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
@@ -35,12 +37,13 @@ public class Door : MonoBehaviour
             {
 			    isOpen = true;
 				close.Play();
-            }
+				
+			}
 		}
 			if (isOpen)
 			{
-
-				Quaternion rotation = Quaternion.Euler(0, openAngle, 0);
+			   
+			    Quaternion rotation = Quaternion.Euler(0, openAngle, 0);
 				anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
 			}
 			else
@@ -49,8 +52,11 @@ public class Door : MonoBehaviour
 				anchor.localRotation = Quaternion.Lerp(anchor.localRotation, rotation, smooth * Time.deltaTime);
 			}
 
-			
-		
+		//if (Vector3.Distance(transform.position, _player.position) < distance )
+      //  {
+         	//Panel.SetActive(true)
+		//}
+
 	}
 
 	
