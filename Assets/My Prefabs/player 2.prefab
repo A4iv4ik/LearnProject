@@ -187,7 +187,8 @@ MonoBehaviour:
   speed: 5
   _MouseSensetive: 100
   _camera: {fileID: 8857830511333333615}
-  sword: {fileID: 8857830511333333610}
+  swordsound: {fileID: 0}
+  fight: {fileID: 0}
   prefab: {fileID: 2788906473652326899, guid: 00f1ab93659cc2a4ab03340460753db3, type: 3}
   magic: {fileID: 6611533308603712516, guid: 3a77446c413af46478e690070d9fd657, type: 3}
   _animator: {fileID: 8857830511333333612}

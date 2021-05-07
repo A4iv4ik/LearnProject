@@ -110,7 +110,7 @@ public class Charapter : MonoBehaviour
         {
             ang = 180;
         }
-        player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, ang, 0), Time.fixedDeltaTime * 10f);
+       // player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, ang, 0), Time.fixedDeltaTime * 10f);
         //player.transform.LookAt(transform.position+_direction);
         _camera.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
     }
