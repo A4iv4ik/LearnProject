@@ -15,12 +15,12 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Slider slider;
+    [SerializeField] private Transform _targ; 
     public float health = 1000f;
     private bool ishield;
-    Component sword;
     [SerializeField] bool rayCast;
     Vector3 _direction = Vector3.zero;
-    Quaternion m_Rotation;
     private float damage;
     float ang;
     float _angle;
@@ -29,13 +29,14 @@ public class Charapter : MonoBehaviour
 
     private void Awake()
     {
-        
+        slider.maxValue = health;
         rg = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        slider.value = health;
          rayCast = Physics.Raycast(transform.position+Vector3.up/100,Vector3.down, 0.5f);
         Debug.DrawRay(transform.position,Vector3.down,Color.green,3f);
 
@@ -93,25 +94,8 @@ public class Charapter : MonoBehaviour
     }
     private void Camerarotator()
     {
-        if (_direction.x == 1)
-        {
-        
-            ang = 90;
-        }
-        if (_direction.x == -1)
-        {
-            ang = 270;
-        }
-        if (_direction.z == 1)
-        {
-            ang = 0;
-        }
-        if (_direction.z == -1)
-        {
-            ang = 180;
-        }
-       // player.transform.localRotation = Quaternion.Lerp(player.transform.localRotation, Quaternion.Euler(0, ang, 0), Time.fixedDeltaTime * 10f);
-        //player.transform.LookAt(transform.position+_direction);
+        _targ.localPosition = new Vector3(_direction.x,player.transform.localPosition.y,_direction.z);
+        player.transform.LookAt(_targ);
         _camera.transform.Rotate(new Vector3(0f, _angle*_MouseSensetive*Time.fixedDeltaTime, 0f));
     }
     private void Move()
