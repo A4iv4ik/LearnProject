@@ -8,7 +8,6 @@ using System;
 public class Charapter : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private float speed = 4f;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
     [SerializeField] private AudioSource swordsound;
@@ -19,11 +18,11 @@ public class Charapter : MonoBehaviour
     [SerializeField] private Transform _targ;
     [SerializeField] public static int Souls=0;
     [SerializeField] private Text Soul;
+    public static float speed = 4f;
     public static float UPdamage =1f;
-    private float UPspeed = 1f;
     private bool attackcd=true;
-    private float MAXhealhh = 1000f;
-    public float health = 1000f;
+    public static float MAXhealhh = 1000f;
+    public static float health = 1000f;
     private bool ishield;
     [SerializeField] bool rayCast;
     Vector3 _direction = Vector3.zero;
@@ -35,6 +34,7 @@ public class Charapter : MonoBehaviour
 
     private void Awake()
     {
+        health = MAXhealhh;
         slider.maxValue = health;
         rg = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
@@ -148,21 +148,21 @@ public class Charapter : MonoBehaviour
         yield return new WaitForSeconds(1f);
         attackcd = true;
     }
-    public void DamageUp()
-    {
-        UPdamage++;
-        Souls = Souls - 3;
-    }
-    public void SpeedUp()
-    {
-        speed=speed+1f;
-        Souls = Souls - 3;
-    }
-    public void Heal()
-    {
-        health = health + MAXhealhh * 0.25f;
-        Souls = Souls - 2;
-    }
+    //public void DamageUp()
+    //{
+    //    UPdamage++;
+    //    Souls = Souls - 3;
+    //}
+    //public void SpeedUp()
+    //{
+    //    speed=speed+1f;
+    //    Souls = Souls - 3;
+    //}
+    //public void Heal()
+    //{
+    //    health  ;
+    //    Souls = Souls - 3;
+    //}
 }
 
 
