@@ -87,7 +87,7 @@ public class Enemy2 : MonoBehaviour
              yield return new WaitForSeconds(3f);
                 if (istarget)
                 {
-                    Instantiate(magic, Magicstuf.transform.position+transform.forward, transform.rotation);
+                    Instantiate(magic, Magicstuf.transform.position+transform.forward, Magicstuf.transform.rotation);
                 }
             }
             

@@ -16,7 +16,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Slider slider;
     [SerializeField] private Transform _targ;
-    public static float Souls=0;
+    [SerializeField] public static float Souls=0;
     private bool attackcd=true;
     public float health = 1000f;
     private bool ishield;
