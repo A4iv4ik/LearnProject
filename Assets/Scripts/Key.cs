@@ -10,6 +10,7 @@ public class Key : MonoBehaviour
     [SerializeField] private AudioSource take;
     public static bool iskay = false;
      Transform _player;
+    [SerializeField] GameObject Prefab;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Key : MonoBehaviour
         {
             iskay = true;
             take.Play();
+            Instantiate(Prefab, transform.parent);
             gameObject.SetActive(false);
             
         }
