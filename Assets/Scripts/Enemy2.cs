@@ -26,7 +26,7 @@ public class Enemy2 : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false)
         {

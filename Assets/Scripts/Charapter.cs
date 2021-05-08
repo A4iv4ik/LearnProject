@@ -66,7 +66,7 @@ public class Charapter : MonoBehaviour
         {
             _animator.SetBool("IsWalk", true);
         }
-        if (Input.GetMouseButtonDown(0)&& attackcd)
+        if (Input.GetMouseButtonDown(0)&& attackcd && ishield)
         {
             _animator.SetTrigger("Attack");
             swordsound.Play();
