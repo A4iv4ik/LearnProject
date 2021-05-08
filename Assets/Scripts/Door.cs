@@ -13,12 +13,12 @@ public class Door : MonoBehaviour
 	[SerializeField] private float openAngle = 120f;
 	[SerializeField] private float closeAngle = 0f;
 	[SerializeField] private float smooth = 2f;
-	//[SerializeField] private GameObject Panel;
+	
 	private Transform _player;
 
 	void Awake()
 	{
-		//Panel.SetActive(false);
+
 		isOpen = false;
 		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}

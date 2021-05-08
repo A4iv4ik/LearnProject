@@ -17,6 +17,7 @@ public class Enemy1 : MonoBehaviour
     private Vector3 _targetpoint;
     [SerializeField]private bool hurt;
     int index;
+    //private float Souls;
     
 
     void Start()
@@ -28,7 +29,7 @@ public class Enemy1 : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)==false)
         {
             hurt = true;
             StartCoroutine(Getattack());
@@ -40,6 +41,8 @@ public class Enemy1 : MonoBehaviour
         
 
     }
+
+        
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Enemy weapon"&&hurt)
@@ -49,6 +52,7 @@ public class Enemy1 : MonoBehaviour
             hurt = false;
             if (Health<=0)
             {
+                Charapter.Souls ++;
                 Object.Destroy(gameObject);
             }
         }
@@ -77,7 +81,7 @@ public class Enemy1 : MonoBehaviour
                 color = Color.green;
                 transform.LookAt(_player);
                 _targetpoint = _player.position;
-
+                
             }
             else
             {

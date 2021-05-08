@@ -11,12 +11,12 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
     [SerializeField] private AudioSource swordsound;
-    [SerializeField] private AudioSource fight;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField] private Slider slider;
     [SerializeField] private Transform _targ;
+    public static float Souls=0;
     private bool attackcd=true;
     public float health = 1000f;
     private bool ishield;

@@ -28,7 +28,7 @@ public class Enemy2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false)
         {
             StartCoroutine(Getattack());
             hurt = true;
