@@ -47,7 +47,7 @@ public class Enemy1 : MonoBehaviour
     {
         if (other.tag=="Enemy weapon"&&hurt)
         {
-            Health -= 5;
+            Health -=5*Charapter.UPdamage;
             getdamage.Play();
             hurt = false;
             if (Health<=0)

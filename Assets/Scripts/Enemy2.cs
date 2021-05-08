@@ -70,11 +70,12 @@ public class Enemy2 : MonoBehaviour
         
         if (other.tag == "Enemy weapon"&&hurt)
         {
-            Health -= 5;
+            Health -= 5*Charapter.UPdamage;
             getdamage.Play();
             hurt = false;
             if (Health <= 0)
             {
+                Charapter.Souls++;
                 Object.Destroy(gameObject);
             }
         }
