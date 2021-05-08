@@ -26,15 +26,18 @@ public class Enemy1 : MonoBehaviour
         navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-
-    void FixedUpdate()
+    private void Update()
     {
-        Move();
         if (Input.GetMouseButtonDown(0))
         {
             hurt = true;
             StartCoroutine(Getattack());
         }
+    }
+    void FixedUpdate()
+    {
+        Move();
+        
 
     }
     private void OnTriggerEnter(Collider other)
@@ -89,7 +92,11 @@ public class Enemy1 : MonoBehaviour
             Debug.DrawRay(startPos, _player.position - startPos, color);
 
             navMeshAgent.SetDestination(_targetpoint);
-            _animator.SetBool("Run",true);
+            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+            {
+                _animator.SetBool("Run", true);
+            }
+            else _animator.SetBool("Run",false);
         }
     }
     private IEnumerator Getattack()

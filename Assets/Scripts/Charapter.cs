@@ -16,7 +16,8 @@ public class Charapter : MonoBehaviour
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField] private Slider slider;
-    [SerializeField] private Transform _targ; 
+    [SerializeField] private Transform _targ;
+    private bool attackcd=true;
     public float health = 1000f;
     private bool ishield;
     [SerializeField] bool rayCast;
@@ -65,10 +66,12 @@ public class Charapter : MonoBehaviour
         {
             _animator.SetBool("IsWalk", true);
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&& attackcd)
         {
             _animator.SetTrigger("Attack");
             swordsound.Play();
+            attackcd = false;
+            StartCoroutine(Attackcd());
         }
         if (Input.GetMouseButton(1))
         {
@@ -134,5 +137,11 @@ public class Charapter : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
+    private IEnumerator Attackcd()
+    {
+        yield return new WaitForSeconds(1f);
+        attackcd = true;
+    }
 }
+
 
