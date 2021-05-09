@@ -17,6 +17,7 @@ public class Enemy1 : MonoBehaviour
     private bool attackcd=true;
     private Vector3 _targetpoint;
     [SerializeField]private bool hurt;
+    private bool searchEnd;
     int index;
     //private float Souls;
     
@@ -83,10 +84,18 @@ public class Enemy1 : MonoBehaviour
                 color = Color.green;
                 transform.LookAt(_player);
                 _targetpoint = _player.position;
-                
+
+            }
+            else if(searchEnd==false)
+            {
+                transform.LookAt(_player);
+                _targetpoint = _player.position;
+                StartCoroutine(Search());
             }
             else
+            if (searchEnd)
             {
+                
                 color = Color.red;
                 if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
                 {
@@ -116,6 +125,11 @@ public class Enemy1 : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
         Axe.SetActive(false);
+    }
+    private IEnumerator Search()
+    {
+        yield return new WaitForSeconds(4f);
+        searchEnd = true;
     }
 }
 

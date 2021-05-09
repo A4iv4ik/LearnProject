@@ -125,7 +125,7 @@ public class Charapter : MonoBehaviour
         }
         if (other.tag == "Enemy magic")
         {
-            health -= damage*3;
+            health -= damage*10;
 
         }
     }
@@ -149,21 +149,6 @@ public class Charapter : MonoBehaviour
         yield return new WaitForSeconds(1f);
         attackcd = true;
     }
-    //public void DamageUp()
-    //{
-    //    UPdamage++;
-    //    Souls = Souls - 3;
-    //}
-    //public void SpeedUp()
-    //{
-    //    speed=speed+1f;
-    //    Souls = Souls - 3;
-    //}
-    //public void Heal()
-    //{
-    //    health  ;
-    //    Souls = Souls - 3;
-    //}
 }
 
 
