@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {[SerializeField] GameObject Prefab;
-    bool X = true;
-    private void OnTriggerEnter(Collider other)
+    public static bool[]SP = new bool[5];
+    [SerializeField] private int n;
+    private void Awake()
     {
-        if (X)
+        for (int i = 0; i < SP.Length; i++)
         {
-        Instantiate(Prefab, transform.parent);
-            X = false;
+            SP[i] = true;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (SP[n])
+        {
+            SP[n] = false;
+        Instantiate(Prefab, transform.parent);
+        }
+    }
+
 }
