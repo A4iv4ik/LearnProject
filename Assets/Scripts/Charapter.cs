@@ -20,7 +20,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private Text Soul;
     public static float speed = 4f;
     public static float UPdamage =1f;
-    private bool attackcd=true;
+    private  bool attackcd=true;
     public static float MAXhealhh = 1000f;
     public static float health = 1000f;
     private bool ishield;
@@ -62,7 +62,7 @@ public class Charapter : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump")&& rayCast)
         {
-            rg.AddForce(Vector3.up*400f, ForceMode.Impulse);
+            rg.AddForce(Vector3.up*300f, ForceMode.Impulse);
         }
         if (Mathf.Approximately(_direction.x, 0) && Mathf.Approximately(_direction.z, 0))
         {

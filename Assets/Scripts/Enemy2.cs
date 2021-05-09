@@ -15,6 +15,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private AudioSource getdamage;
     [SerializeField]private bool hurt;
     private Color color;
+    private bool attackcd=true;
     private Vector3 _targetpoint;
     int index;
     [SerializeField]private bool istarget;
@@ -28,10 +29,11 @@ public class Enemy2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false)
+        if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false&&attackcd)
         {
             StartCoroutine(Getattack());
             hurt = true;
+            attackcd = false;
         }
         RaycastHit hit;
 
@@ -68,7 +70,7 @@ public class Enemy2 : MonoBehaviour
     {
 
         
-        if (other.tag == "Enemy weapon"&&hurt)
+        if (other.tag == "Enemy weapon" && hurt && attackcd==false)
         {
             Health -= 5*Charapter.UPdamage;
             getdamage.Play();
@@ -98,6 +100,7 @@ public class Enemy2 : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         hurt = false;
+        attackcd = true;
     }
 }
 

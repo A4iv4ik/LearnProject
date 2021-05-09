@@ -14,6 +14,7 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]private float Health=50f;
     [SerializeField]private AudioSource getdamage;
     private Color color;
+    private bool attackcd=true;
     private Vector3 _targetpoint;
     [SerializeField]private bool hurt;
     int index;
@@ -29,9 +30,10 @@ public class Enemy1 : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)==false)
+        if (Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)==false && attackcd)
         {
             hurt = true;
+            attackcd = false;
             StartCoroutine(Getattack());
         }
     }
@@ -45,7 +47,7 @@ public class Enemy1 : MonoBehaviour
         
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Enemy weapon"&&hurt)
+        if (other.tag=="Enemy weapon"&&hurt && attackcd==false)
         {
             Health -=5*Charapter.UPdamage;
             getdamage.Play();
@@ -106,12 +108,13 @@ public class Enemy1 : MonoBehaviour
     private IEnumerator Getattack()
     {
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         hurt = false;
+        attackcd = true;
     }
     private IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         Axe.SetActive(false);
     }
 }
