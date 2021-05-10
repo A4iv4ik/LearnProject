@@ -28,6 +28,14 @@ public class Doragon : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
+    private void FixedUpdate()
+    {
+        if (walk)
+        {
+
+        transform.LookAt(_player);
+        }
+    }
     private void Update()
     {
         Slider.value = dragonhealth;
@@ -63,11 +71,10 @@ public class Doragon : MonoBehaviour
         if ( distance > 16f && at3)
         {
             _animator.SetTrigger("ThirdAttack");
-            if (FireOn&&at3)
-            {
+            
             StartCoroutine(DragonFire());
 
-            }
+            
             at3 = false;
             at2 = true;
             at1 = true;
@@ -107,7 +114,7 @@ public class Doragon : MonoBehaviour
                 }
                 if (walk)
                 {
-                    transform.LookAt(_player);
+                  
                     navMeshAgent.SetDestination(_player.position);
                 }
             }
@@ -158,7 +165,7 @@ public class Doragon : MonoBehaviour
     {
         while (true)
         {
-
+            yield return new WaitForSeconds(3f);
         for (int i = 0; i < 20; i++)
         {
                 yield return new WaitForSeconds(0.01f);
