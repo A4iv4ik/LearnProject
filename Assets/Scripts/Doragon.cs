@@ -65,20 +65,21 @@ public class Doragon : MonoBehaviour
             at2 = false;
             at3 = true;
             at1 = true;
-            StopCoroutine(DragonFire());
+            //StopCoroutine(DragonFire());
         }
         else StopCoroutine(Atack2());
-        if ( distance > 16f && at3)
+        if (distance > 16f && distance < 20 && at3)
         {
             _animator.SetTrigger("ThirdAttack");
-            
-            StartCoroutine(DragonFire());
 
-            
+            StartCoroutine(DragonFire());
+            //fire2();
+
             at3 = false;
             at2 = true;
             at1 = true;
         }
+        else StopCoroutine(DragonFire());
         Move();
     }
     private void OnTriggerEnter(Collider other)
@@ -122,6 +123,10 @@ public class Doragon : MonoBehaviour
         }
         Debug.DrawRay(startPos, _player.position - startPos);
     }
+    private void fire2()
+    {
+        Instantiate(magic, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
+    }
     IEnumerator ReadyToWalk()
     {
         yield return new WaitForSeconds(3f);
@@ -163,15 +168,22 @@ public class Doragon : MonoBehaviour
     }
     private IEnumerator DragonFire()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(3f);
-        for (int i = 0; i < 20; i++)
-        {
-                yield return new WaitForSeconds(0.01f);
-            Instantiate(magic, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
-        } 
+        yield return new WaitForSeconds(2f);
+        //for (int i = 0; i < 5; i++)
+        //{
+        //
+        //    yield return new WaitForSeconds(1.1f);
+           // if (at1&&at2)
+            //{
+                for (int j = 0; j < 111130; j++)
+                {
+
+                    yield return new WaitForSeconds(0.05f);
+                    Instantiate(magic, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
+                }
+                StopCoroutine(DragonFire());
+            //}
     }
        
     }
-    }
+    
