@@ -62,7 +62,7 @@ public class Charapter : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump")&& rayCast)
         {
-            rg.AddForce(Vector3.up*300f, ForceMode.Impulse);
+            rg.AddForce(Vector3.up*350f, ForceMode.Impulse);
         }
         if (Mathf.Approximately(_direction.x, 0) && Mathf.Approximately(_direction.z, 0))
         {

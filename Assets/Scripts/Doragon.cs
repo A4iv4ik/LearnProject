@@ -13,6 +13,7 @@ public class Doragon : MonoBehaviour
     [SerializeField] private Slider Slider;
     [SerializeField] private GameObject magic;
     [SerializeField] private GameObject Magicstuf;
+    [SerializeField] private GameObject[] Soplo;
     private bool at1=true;
     private bool at2=true;
     private bool at3=true;
@@ -79,7 +80,7 @@ public class Doragon : MonoBehaviour
             at2 = true;
             at1 = true;
         }
-        else StopCoroutine(DragonFire());
+        //else StopCoroutine(DragonFire());
         Move();
     }
     private void OnTriggerEnter(Collider other)
@@ -125,7 +126,8 @@ public class Doragon : MonoBehaviour
     }
     private void fire2()
     {
-        Instantiate(magic, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
+        StartCoroutine(Fire());
+        //Instantiate(DragonFire, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
     }
     IEnumerator ReadyToWalk()
     {
@@ -159,6 +161,17 @@ public class Doragon : MonoBehaviour
             
         }
     }
+    IEnumerator Fire()
+    {
+        for (int i = 0; i <80 ; i++)
+        {
+            for (int j = 0; j < Soplo.Length; j++)
+            {
+            yield return new WaitForSeconds(0.005f);
+                Instantiate(magic,Soplo[j].transform.position + transform.forward, Soplo[j].transform.rotation);
+            }
+        }
+    }
     private IEnumerator Getattack()
     {
 
@@ -166,24 +179,7 @@ public class Doragon : MonoBehaviour
         hurt = false;
         attackcd = true;
     }
-    private IEnumerator DragonFire()
-    {
-        yield return new WaitForSeconds(2f);
-        //for (int i = 0; i < 5; i++)
-        //{
-        //
-        //    yield return new WaitForSeconds(1.1f);
-           // if (at1&&at2)
-            //{
-                for (int j = 0; j < 111130; j++)
-                {
-
-                    yield return new WaitForSeconds(0.05f);
-                    Instantiate(magic, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
-                }
-                StopCoroutine(DragonFire());
-            //}
-    }
+   
        
     }
     
