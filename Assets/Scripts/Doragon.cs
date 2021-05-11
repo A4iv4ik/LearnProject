@@ -72,7 +72,7 @@ public class Doragon : MonoBehaviour
         {
             _animator.SetTrigger("ThirdAttack");
 
-            StartCoroutine(DragonFire());
+            //StartCoroutine(DragonFire());
             //fire2();
 
             at3 = false;

@@ -795,9 +795,9 @@ ModelImporter:
       curves: []
       events:
       - time: 0.021857923
-        functionName: Move
+        functionName: fire2
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 6611533308603712516, guid: 3a77446c413af46478e690070d9fd657, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
