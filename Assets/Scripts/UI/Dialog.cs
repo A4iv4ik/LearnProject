@@ -15,7 +15,8 @@ public void dialog()
         switch (i)
         {
             case 1:
-                replics[1].SetActive(true);
+                replics[i-1].SetActive(false);
+                replics[i].SetActive(true);
                 break; 
             case 2:
                 replics[1].SetActive(false);

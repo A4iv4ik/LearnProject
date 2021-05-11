@@ -23,9 +23,9 @@ public class Bonfire : MonoBehaviour
             }
             Charapter.health = Charapter.MAXhealhh;
             Rooms = GameObject.FindGameObjectsWithTag("Room");
-            for (int i = 0; i < spawner.SP.Length; i++)
+            for (int j = 0; j < Rooms.Length; j++)
             {
-                Destroy(Rooms[i]);
+                Destroy(Rooms[j]);
             }
           
         }
