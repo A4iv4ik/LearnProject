@@ -14,6 +14,7 @@ public class Doragon : MonoBehaviour
     [SerializeField] private GameObject magic;
     [SerializeField] private GameObject Magicstuf;
     [SerializeField] private GameObject[] Soplo;
+    [SerializeField] private GameObject Head;
     private bool at1=true;
     private bool at2=true;
     private bool at3=true;
@@ -52,35 +53,28 @@ public class Doragon : MonoBehaviour
         else
             _animator.SetBool("Walk", false);
 
-        if (distance <10f&&at1)
+        if (distance <8f&&at1)
         {
             _animator.SetTrigger("FirstAttack");
             at1 = false;
             at2 = true;
-            
         }
-        if (distance < 16f && distance>10f && at2)
+        if (distance < 13f && distance>8f && at2)
         {
             _animator.SetTrigger("SecondAttack");
             StartCoroutine(Atack2());
             at2 = false;
             at3 = true;
             at1 = true;
-            //StopCoroutine(DragonFire());
         }
         else StopCoroutine(Atack2());
-        if (distance > 16f && distance < 20 && at3)
+        if (distance > 13f && distance < 20 && at3)
         {
             _animator.SetTrigger("ThirdAttack");
-
-            //StartCoroutine(DragonFire());
-            //fire2();
-
             at3 = false;
             at2 = true;
             at1 = true;
         }
-        //else StopCoroutine(DragonFire());
         Move();
     }
     private void OnTriggerEnter(Collider other)
@@ -127,7 +121,6 @@ public class Doragon : MonoBehaviour
     private void fire2()
     {
         StartCoroutine(Fire());
-        //Instantiate(DragonFire, Magicstuf.transform.position + transform.forward, Magicstuf.transform.rotation);
     }
     IEnumerator ReadyToWalk()
     {
@@ -154,9 +147,11 @@ public class Doragon : MonoBehaviour
             yield return new WaitForSeconds(30f);
             _animator.SetTrigger("Chill");
             walk = false;
+            Head.SetActive(false);
             yield return new WaitForSeconds(5f);
             _animator.SetTrigger("UnChill");
             _animator.SetTrigger("FirstAttack");
+            Head.SetActive(true);
             walk = true;
             
         }
