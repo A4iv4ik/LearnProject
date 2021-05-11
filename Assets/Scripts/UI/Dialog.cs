@@ -10,7 +10,7 @@ public class Dialog : MonoBehaviour
 public void dialog()
     {
         i++;
-        if (i == replics.Length) button.SetActive(false);
+        if (i == replics.Length-1) button.SetActive(false);
         else button.SetActive(true);
         switch (i)
         {
@@ -41,6 +41,14 @@ public void dialog()
             case 7:
                 replics[6].SetActive(false);
                 replics[7].SetActive(true);
+                break;
+            case 8:
+                replics[7].SetActive(false);
+                replics[8].SetActive(true);
+                break;
+            case 9:
+                replics[8].SetActive(false);
+                replics[9].SetActive(true);
                 break;
         }
     }
