@@ -44,7 +44,7 @@ public class Pause : MonoBehaviour
         {
             SkillPanel.SetActive(true);
             IsSkill = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0.3f;
         }
 
     }
