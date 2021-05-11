@@ -5,10 +5,13 @@ using UnityEngine;
 public class Dialog : MonoBehaviour
 {
     [SerializeField] private GameObject[] replics;
-    private int i;
+    [SerializeField] private GameObject button;
+    public static int i;
 public void dialog()
     {
         i++;
+        if (i == replics.Length) button.SetActive(false);
+        else button.SetActive(true);
         switch (i)
         {
             case 1:
