@@ -21,6 +21,7 @@ public class Doragon : MonoBehaviour
     [SerializeField] private AudioSource Attack3Sound;
     [SerializeField] private AudioSource DeathSound;
     [SerializeField] private AudioSource WalkingSound;
+    [SerializeField] private GameObject FivthWall;
     private bool at1=true;
     private bool at2=true;
     private bool at3=true;
@@ -103,6 +104,7 @@ public class Doragon : MonoBehaviour
                 Charapter.Souls++;
                 _animator.SetTrigger("Die");
                 DeathSound.Play();
+                Destroy(FivthWall);
                 //var  =gameObject.GetComponent<Doragon>.
             }
         }

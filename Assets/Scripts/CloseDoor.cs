@@ -20,7 +20,7 @@ public class CloseDoor : MonoBehaviour
 	void Awake()
 	{
 		isOpen = false;
-		//_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 
 	void Update()

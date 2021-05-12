@@ -40,7 +40,7 @@ public class Quest1 : MonoBehaviour
         else PanelSsupport.SetActive(false);
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key)&&talking==false)
         {
-            Bear.SetActive(true);
+            
             switch (dialogNum)
             {
                 case 0:
@@ -71,6 +71,7 @@ public class Quest1 : MonoBehaviour
                     break;
                 case 2:
                     ThisPanel3.SetActive(false);
+                    Bear.SetActive(true);
                     CloseDoor.KeyDoor[3] = true;
                     break;
             }

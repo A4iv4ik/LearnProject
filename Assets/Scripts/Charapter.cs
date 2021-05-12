@@ -16,7 +16,9 @@ public class Charapter : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private Transform _targ;
     [SerializeField] public static int Souls=0;
-    [SerializeField] private Text Soul; 
+    [SerializeField] private Text Soul;
+    [SerializeField] private GameObject Deathpicture;
+    [SerializeField] private AudioSource DeathSound;
     public static float speed = 4f;
     public static float UPdamage =1f;
     private  bool attackcd=true;
@@ -125,6 +127,8 @@ public class Charapter : MonoBehaviour
         if (health<=0)
         {
             StartCoroutine(death());
+            Deathpicture.SetActive(true);
+            DeathSound.Play();
         }
     }
     private IEnumerator death()
