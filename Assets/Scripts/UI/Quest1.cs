@@ -9,6 +9,9 @@ public class Quest1 : MonoBehaviour
     [SerializeField] private GameObject ThisPanel;
     [SerializeField] private GameObject ThisPanel2;
     [SerializeField] private GameObject ThisPanel3;
+    [SerializeField] private GameObject PanelSsupport;
+    [SerializeField] private GameObject Alive;
+    [SerializeField] private GameObject NotAlive;
     private bool talking=false;
     public static int dialogNum;
     Transform _player;
@@ -19,11 +22,23 @@ public class Quest1 : MonoBehaviour
         ThisPanel.SetActive(false);
         ThisPanel2.SetActive(false);
         ThisPanel3.SetActive(false);
+        PanelSsupport.SetActive(false);
+        Alive.SetActive(true);
+        NotAlive.SetActive(false);
+
     }
     void Update()
     {
-        if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key)&&talking==false)
+        if (dialogNum==2)
         {
+            Alive.SetActive(false);
+            NotAlive.SetActive(true);
+
+        }
+        if (Vector3.Distance(transform.position, _player.position) < distance) PanelSsupport.SetActive(true);
+        else PanelSsupport.SetActive(false);
+        if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key)&&talking==false)
+        { 
             switch (dialogNum)
             {
                 case 0:

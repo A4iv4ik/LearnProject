@@ -18,6 +18,6 @@ public class BossRoom : MonoBehaviour
         slider.SetActive(true);
         HideWall.SetActive(true);
         Destroy(gameObject);
-        cameraview.rotation = new Quaternion(cameraview.rotation.x-0.05f, cameraview.rotation.y, cameraview.rotation.z, cameraview.rotation.w);
+        cameraview.localRotation = new Quaternion(0.20f, cameraview.localRotation.y, 0, 1);
     }
 }

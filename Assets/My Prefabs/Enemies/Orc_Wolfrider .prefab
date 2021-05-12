@@ -1094,6 +1094,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  Axe: {fileID: 7746675125940507029}
   Health: 50
   getdamage: {fileID: 7746675126013488570}
   hurt: 0

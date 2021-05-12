@@ -11,7 +11,6 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float _MouseSensetive;
     [SerializeField] private Transform _camera;
     [SerializeField] private AudioSource swordsound;
-    [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject magic;
     [SerializeField] private Animator _animator;
     [SerializeField] private Slider slider;
@@ -42,7 +41,7 @@ public class Charapter : MonoBehaviour
 
     void Update()
     {
-        Soul.text = $"Souls:{Souls}"; //Convert.ToString(Souls);//$"{Souls}";
+        Soul.text = $"Souls:{Souls}"; 
         slider.value = health;
          rayCast = Physics.Raycast(transform.position+Vector3.up/100,Vector3.down, 0.5f);
         Debug.DrawRay(transform.position,Vector3.down,Color.green,3f);
@@ -52,14 +51,6 @@ public class Charapter : MonoBehaviour
         _direction=_direction.normalized;
         _angle = Input.GetAxis("Mouse X");
         Camerarotator();
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Instantiate(prefab,player.transform.position-transform.forward*1.5f,Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Instantiate(magic, player.transform.position + transform.forward * 1.5f, player.transform.rotation);
-        }
         if (Input.GetButtonDown("Jump")&& rayCast)
         {
             rg.AddForce(Vector3.up*350f, ForceMode.Impulse);
@@ -133,14 +124,13 @@ public class Charapter : MonoBehaviour
     {
         if (health<=0)
         {
-            health = 100;
-
+            Time.timeScale = 0;
             StartCoroutine(death());
         }
     }
     private IEnumerator death()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
