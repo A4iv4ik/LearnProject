@@ -14,7 +14,7 @@ public class CloseDoor : MonoBehaviour
 	[SerializeField] private float closeAngle = 0f;
 	[SerializeField] private float smooth = 2f;
 	[SerializeField]private Transform _player;
-	public static bool[] KeyDoor= new bool[3];
+	public static bool[] KeyDoor= new bool[4];
 	[SerializeField]private int n;
 
 	void Awake()

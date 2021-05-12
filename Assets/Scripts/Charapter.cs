@@ -76,7 +76,7 @@ public class Charapter : MonoBehaviour
         {
             _animator.SetTrigger("Attack");
             swordsound.Play();
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+0.01f) ;
+            transform.localPosition = new Vector3(transform.position.x, transform.position.y+0.00001f, transform.position.z) ;
             attackcd = false;
             StartCoroutine(Attackcd());
         }
