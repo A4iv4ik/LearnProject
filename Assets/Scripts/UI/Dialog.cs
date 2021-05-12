@@ -50,6 +50,13 @@ public void dialog()
                 replics[8].SetActive(false);
                 replics[9].SetActive(true);
                 break;
+                //if (Input.GetKeyDown(KeyCode.F))
+                //{
+                //    for (int i = 0; i < replics.Length; i++)
+                //    {
+                //        replics[i].SetActive(false);
+                //    }
+                //}
         }
     }
 }

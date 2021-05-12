@@ -9,7 +9,6 @@ public class Key : MonoBehaviour
     [SerializeField] private KeyCode key = KeyCode.F;
     [SerializeField] private AudioSource take;
     [SerializeField] private GameObject ThisPanel;
-    public static bool iskay = false;
      Transform _player;
     [SerializeField] GameObject Prefab;
     private bool keyactive;
@@ -23,7 +22,7 @@ public class Key : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))
         {
-            iskay = true;
+            CloseDoor.KeyDoor[1] = true;
             take.Play();
             Instantiate(Prefab, transform.parent);
             gameObject.SetActive(false);

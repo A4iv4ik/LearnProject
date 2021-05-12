@@ -98,7 +98,7 @@ public class Enemy2 : MonoBehaviour
     private IEnumerator Getattack()
     {
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         hurt = false;
         attackcd = true;
     }

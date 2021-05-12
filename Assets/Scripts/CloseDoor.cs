@@ -13,19 +13,20 @@ public class CloseDoor : MonoBehaviour
 	[SerializeField] private float openAngle = 120f;
 	[SerializeField] private float closeAngle = 0f;
 	[SerializeField] private float smooth = 2f;
-	private Transform _player;
-	private bool isKey;
+	[SerializeField]private Transform _player;
+	public static bool[] KeyDoor= new bool[3];
+	[SerializeField]private int n;
 
 	void Awake()
 	{
 		isOpen = false;
-		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+		//_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 
 	void Update()
 	{
-		bool x = Key.iskay;
-        if (x)
+		
+        if (KeyDoor[n])
         {
 
 		if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))
