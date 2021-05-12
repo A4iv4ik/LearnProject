@@ -11,7 +11,9 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject magic;
     [SerializeField] private GameObject Magicstuf;
-    [SerializeField] private float Health=20;
+    [SerializeField] private AudioSource Deathsound;
+    [SerializeField] private AudioSource AttackSound;
+    [SerializeField] private float Health=30;
     [SerializeField] private AudioSource getdamage;
     [SerializeField]private bool hurt;
     private Color color;
@@ -78,10 +80,15 @@ public class Enemy2 : MonoBehaviour
             if (Health <= 0)
             {
                 Charapter.Souls++;
+                Deathsound.Play();
                 Object.Destroy(gameObject);
             }
         }
         
+    }
+    private void Attack()
+    {
+        AttackSound.Play();
     }
     private IEnumerator Fire()
         {

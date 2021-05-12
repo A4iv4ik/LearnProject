@@ -15,20 +15,28 @@ public class Doragon : MonoBehaviour
     [SerializeField] private GameObject Magicstuf;
     [SerializeField] private GameObject[] Soplo;
     [SerializeField] private GameObject Head;
+    [SerializeField] private AudioSource StartRoarSound;
+    [SerializeField] private AudioSource Attack1Sound;
+    [SerializeField] private AudioSource Attack2Sound;
+    [SerializeField] private AudioSource Attack3Sound;
+    [SerializeField] private AudioSource DeathSound;
+    [SerializeField] private AudioSource WalkingSound;
     private bool at1=true;
     private bool at2=true;
     private bool at3=true;
     private bool sleep=true;
     private bool walk=false;
-    private float dragonhealth=1000;
+    [SerializeField]private float dragonhealth=1000;
     private float distance;
     private bool hurt;
     private bool attackcd = true;
     private bool FireOn;
+    
 
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Slider.maxValue = dragonhealth;
     }
     private void FixedUpdate()
     {
@@ -49,9 +57,15 @@ public class Doragon : MonoBehaviour
         }
         distance = Vector3.Distance(transform.position, _player.position);
         if (distance>20)
+        { 
             _animator.SetBool("Walk",true);
+        WalkingSound.Play();
+        }
         else
+        {
             _animator.SetBool("Walk", false);
+            WalkingSound.Stop();
+        }
 
         if (distance <8f&&at1)
         {
@@ -88,6 +102,8 @@ public class Doragon : MonoBehaviour
             {
                 Charapter.Souls++;
                 _animator.SetTrigger("Die");
+                DeathSound.Play();
+                //var  =gameObject.GetComponent<Doragon>.
             }
         }
     }
@@ -122,6 +138,24 @@ public class Doragon : MonoBehaviour
     {
         StartCoroutine(Fire());
     }
+    private void Attack1()
+    {
+        Attack1Sound.Play();
+    }
+    private void Attack2()
+    {
+        Attack2Sound.Play();
+    }
+    private void Attack3()
+    {
+        Attack3Sound.Play();
+    }
+
+    private void StartRoar()
+    {
+        StartRoarSound.Play();
+    }
+
     IEnumerator ReadyToWalk()
     {
         yield return new WaitForSeconds(3f);

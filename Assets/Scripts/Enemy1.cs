@@ -11,6 +11,8 @@ public class Enemy1 : MonoBehaviour
     private Transform _player;
     private Animator _animator;
     [SerializeField]private GameObject Axe;
+    [SerializeField] private AudioSource Deathsound;
+    [SerializeField] private AudioSource AttackSound;
     [SerializeField]private float Health=50f;
     [SerializeField]private AudioSource getdamage;
     private Color color;
@@ -19,7 +21,6 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]private bool hurt;
     private bool searchEnd;
     int index;
-    //private float Souls;
     
 
     void Start()
@@ -56,6 +57,7 @@ public class Enemy1 : MonoBehaviour
             if (Health<=0)
             {
                 Charapter.Souls ++;
+                Deathsound.Play();
                 Object.Destroy(gameObject);
             }
         }
@@ -64,9 +66,13 @@ public class Enemy1 : MonoBehaviour
             
             _animator.SetTrigger("Attack");
             Axe.SetActive(true);
-            StartCoroutine(Attack());
+            StartCoroutine(AttacOgr());
         }
         
+    }
+    private void Attack()
+    {
+        AttackSound.Play();
     }
     private void Move()
     {
@@ -121,7 +127,7 @@ public class Enemy1 : MonoBehaviour
         hurt = false;
         attackcd = true;
     }
-    private IEnumerator Attack()
+    private IEnumerator AttacOgr()
     {
         yield return new WaitForSeconds(0.8f);
         Axe.SetActive(false);

@@ -12,6 +12,7 @@ public class Quest1 : MonoBehaviour
     [SerializeField] private GameObject PanelSsupport;
     [SerializeField] private GameObject Alive;
     [SerializeField] private GameObject NotAlive;
+    [SerializeField] private GameObject Bear;
     private bool talking=false;
     public static int dialogNum;
     Transform _player;
@@ -25,7 +26,7 @@ public class Quest1 : MonoBehaviour
         PanelSsupport.SetActive(false);
         Alive.SetActive(true);
         NotAlive.SetActive(false);
-
+        Bear.SetActive(false);
     }
     void Update()
     {
@@ -38,7 +39,8 @@ public class Quest1 : MonoBehaviour
         if (Vector3.Distance(transform.position, _player.position) < distance) PanelSsupport.SetActive(true);
         else PanelSsupport.SetActive(false);
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key)&&talking==false)
-        { 
+        {
+            Bear.SetActive(true);
             switch (dialogNum)
             {
                 case 0:

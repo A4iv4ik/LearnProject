@@ -16,7 +16,7 @@ public class Charapter : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private Transform _targ;
     [SerializeField] public static int Souls=0;
-    [SerializeField] private Text Soul;
+    [SerializeField] private Text Soul; 
     public static float speed = 4f;
     public static float UPdamage =1f;
     private  bool attackcd=true;
@@ -124,7 +124,6 @@ public class Charapter : MonoBehaviour
     {
         if (health<=0)
         {
-            Time.timeScale = 0;
             StartCoroutine(death());
         }
     }
