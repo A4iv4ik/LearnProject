@@ -46,16 +46,10 @@ public class Charapter : MonoBehaviour
         slider.value = health;
          rayCast = Physics.Raycast(transform.position+Vector3.up/100,Vector3.down, 0.5f);
         Debug.DrawRay(transform.position,Vector3.down,Color.green,3f);
-
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
         _direction=_direction.normalized;
         _angle = Input.GetAxis("Mouse X");
-        Camerarotator();
-        if (Input.GetButtonDown("Jump")&& rayCast)
-        {
-            rg.AddForce(Vector3.up*350f, ForceMode.Impulse);
-        }
         if (Mathf.Approximately(_direction.x, 0) && Mathf.Approximately(_direction.z, 0))
         {
             _animator.SetBool("IsWalk", false);
@@ -64,22 +58,22 @@ public class Charapter : MonoBehaviour
         {
             _animator.SetBool("IsWalk", true);
         }
-        if (Input.GetMouseButtonDown(0)&& attackcd && ishield)
-        {
-            _animator.SetTrigger("Attack");
-            swordsound.Play();
-            transform.localPosition = new Vector3(transform.position.x, transform.position.y+0.00001f, transform.position.z) ;
-            attackcd = false;
-            StartCoroutine(Attackcd());
-        }
+        Camerarotator();
+        Actions();
+    }
+    private void FixedUpdate()
+    {
+        Move();
+        Death();
+    }
+    private void Actions()
+    {
         if (Input.GetMouseButton(1))
         {
             damage = 1f;
             ishield = false;
             up = !up;
             _animator.SetBool("Block", true);
-            
-          
         }
         else
         {
@@ -87,12 +81,18 @@ public class Charapter : MonoBehaviour
             damage = 5f;
             _animator.SetBool("Block", false);
         }
-       
-    }
-    private void FixedUpdate()
-    {
-        Move();
-        Death();
+        if (Input.GetMouseButtonDown(0) && attackcd && ishield)
+        {
+            _animator.SetTrigger("Attack");
+            swordsound.Play();
+            transform.localPosition = new Vector3(transform.position.x, transform.position.y + 0.00001f, transform.position.z);
+            attackcd = false;
+            StartCoroutine(Attackcd());
+        }
+        if (Input.GetButtonDown("Jump") && rayCast)
+        {
+            rg.AddForce(Vector3.up * 350f, ForceMode.Impulse);
+        }
     }
     private void Camerarotator()
     {

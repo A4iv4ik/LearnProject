@@ -18,10 +18,7 @@ public class Bear : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))
         {
-
-
             Pivo.SetActive(true);
-
         }
     }
     IEnumerator Wait()

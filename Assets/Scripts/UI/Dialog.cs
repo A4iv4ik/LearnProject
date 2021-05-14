@@ -15,9 +15,9 @@ public void dialog()
         switch (i)
         {
             case 1:
-                replics[i-1].SetActive(false);
+                replics[i - 1].SetActive(false);
                 replics[i].SetActive(true);
-                break; 
+                break;
             case 2:
                 replics[1].SetActive(false);
                 replics[2].SetActive(true);
@@ -50,13 +50,7 @@ public void dialog()
                 replics[8].SetActive(false);
                 replics[9].SetActive(true);
                 break;
-                //if (Input.GetKeyDown(KeyCode.F))
-                //{
-                //    for (int i = 0; i < replics.Length; i++)
-                //    {
-                //        replics[i].SetActive(false);
-                //    }
-                //}
         }
+        
     }
 }

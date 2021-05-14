@@ -112,7 +112,7 @@ public class Enemy2 : MonoBehaviour
     }
     private IEnumerator Death()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
         Object.Destroy(gameObject);
     }
 }

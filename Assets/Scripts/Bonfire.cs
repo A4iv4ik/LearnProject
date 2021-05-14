@@ -34,7 +34,6 @@ public class Bonfire : MonoBehaviour
             {
                 Destroy(Rooms[j]);
             }
-          
         }
     }
     IEnumerator AshEnd()

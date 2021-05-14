@@ -103,7 +103,6 @@ public class Doragon : MonoBehaviour
                 _animator.SetTrigger("Die");
                 DeathSound.Play();
                 Destroy(FivthWall);
-                //var  =gameObject.GetComponent<Doragon>.
             }
         }
     }

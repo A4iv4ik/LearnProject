@@ -42,8 +42,6 @@ public class Enemy1 : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        
-
     }
 
         
@@ -139,7 +137,7 @@ public class Enemy1 : MonoBehaviour
     }
     private IEnumerator DeathW()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Object.Destroy(gameObject);
     }
 }
