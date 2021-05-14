@@ -16671,6 +16671,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5883874800361168692}
     - target: {fileID: 7456593485142107678, guid: fe4262d62a6334d41aaf6b13c8d9a916, type: 3}
+      propertyPath: dragonhealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456593485142107678, guid: fe4262d62a6334d41aaf6b13c8d9a916, type: 3}
       propertyPath: StartRoarSound
       value: 
       objectReference: {fileID: 5883874800361168696}
@@ -24019,7 +24023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2284218770136032290, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -117.74896
+      value: -117.74895
       objectReference: {fileID: 0}
     - target: {fileID: 2609007761328805224, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: _targ
