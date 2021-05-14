@@ -41,7 +41,7 @@ public class Doragon : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (walk)
+        if (walk&&dragonhealth>0)
         {
 
         transform.LookAt(_player);
@@ -60,12 +60,10 @@ public class Doragon : MonoBehaviour
         if (distance>20)
         { 
             _animator.SetBool("Walk",true);
-        WalkingSound.Play();
         }
         else
         {
             _animator.SetBool("Walk", false);
-            WalkingSound.Stop();
         }
 
         if (distance <8f&&at1)
@@ -126,7 +124,7 @@ public class Doragon : MonoBehaviour
                     sleep = false;
                     StartCoroutine(ReadyToWalk());
                 }
-                if (walk)
+                if (walk&&dragonhealth>0)
                 {
                   
                     navMeshAgent.SetDestination(_player.position);
@@ -143,6 +141,10 @@ public class Doragon : MonoBehaviour
     private void Attack1()
     {
         Attack1Sound.Play();
+    }
+    private void Walking()
+    {
+        WalkingSound.Play();
     }
     private void Attack2()
     {
@@ -181,14 +183,20 @@ public class Doragon : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(30f);
+            if (dragonhealth>0)
+            {
             _animator.SetTrigger("Chill");
             walk = false;
             Head.SetActive(false);
             yield return new WaitForSeconds(5f);
+            }
+            if (dragonhealth>0)
+            {
             _animator.SetTrigger("UnChill");
             _animator.SetTrigger("FirstAttack");
             Head.SetActive(true);
             walk = true;
+            }
             
         }
     }

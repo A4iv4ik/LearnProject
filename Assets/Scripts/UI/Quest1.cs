@@ -36,7 +36,7 @@ public class Quest1 : MonoBehaviour
             NotAlive.SetActive(true);
 
         }
-        if (Vector3.Distance(transform.position, _player.position) < distance) PanelSsupport.SetActive(true);
+        if (Vector3.Distance(transform.position, _player.position) < distance&&talking==false) PanelSsupport.SetActive(true);
         else PanelSsupport.SetActive(false);
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key)&&talking==false)
         {
