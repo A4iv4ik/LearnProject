@@ -58,7 +58,7 @@ public class Enemy1 : MonoBehaviour
             {
                 Charapter.Souls ++;
                 Deathsound.Play();
-                Object.Destroy(gameObject);
+                StartCoroutine(DeathW());
             }
         }
         if (other.tag=="Player")
@@ -136,6 +136,11 @@ public class Enemy1 : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         searchEnd = true;
+    }
+    private IEnumerator DeathW()
+    {
+        yield return new WaitForSeconds(2f);
+        Object.Destroy(gameObject);
     }
 }
 

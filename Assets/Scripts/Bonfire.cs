@@ -7,11 +7,14 @@ public class Bonfire : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private float distance = 3f;
     [SerializeField] private AudioSource Gong;
+    [SerializeField] private GameObject Ash;
     private KeyCode key = KeyCode.F;
+
     GameObject[] Rooms;
 
     private void Awake()
     {
+        Ash.SetActive(false);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
@@ -19,6 +22,8 @@ public class Bonfire : MonoBehaviour
         if (Vector3.Distance(transform.position, _player.position) < distance && Input.GetKeyDown(key))
         {
             Gong.Play();
+            Ash.SetActive(true);
+            StartCoroutine(AshEnd());
             for (int i = 0; i < spawner.SP.Length; i++)
             {
                 spawner.SP[i] = true;
@@ -31,6 +36,11 @@ public class Bonfire : MonoBehaviour
             }
           
         }
+    }
+    IEnumerator AshEnd()
+    {
+        yield return new WaitForSeconds(2f);
+        Ash.SetActive(false);
     }
 
 }

@@ -81,7 +81,7 @@ public class Enemy2 : MonoBehaviour
             {
                 Charapter.Souls++;
                 Deathsound.Play();
-                Object.Destroy(gameObject);
+                StartCoroutine(Death());
             }
         }
         
@@ -94,10 +94,11 @@ public class Enemy2 : MonoBehaviour
         {
             while (true)
             {
-             yield return new WaitForSeconds(3f);
+             yield return new WaitForSeconds(1f);
                 if (istarget)
                 {
                     Instantiate(magic, Magicstuf.transform.position+transform.forward, Magicstuf.transform.rotation);
+                    AttackSound.Play();
                 }
             }
             
@@ -109,5 +110,11 @@ public class Enemy2 : MonoBehaviour
         hurt = false;
         attackcd = true;
     }
+    private IEnumerator Death()
+    {
+        yield return new WaitForSeconds(2);
+        Object.Destroy(gameObject);
+    }
 }
+
 
