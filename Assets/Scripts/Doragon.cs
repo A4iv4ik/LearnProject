@@ -32,6 +32,7 @@ public class Doragon : MonoBehaviour
     private bool hurt;
     private bool attackcd = true;
     private bool FireOn;
+    public static bool SL; 
     
 
     private void Awake()
@@ -41,6 +42,14 @@ public class Doragon : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (SL)
+        {
+            dragonhealth = 1000;
+            SL = false;
+            _animator.SetTrigger("Chill");
+            _animator.SetTrigger("UnChill");
+            _animator.SetTrigger("ThirdAttack");
+        }
         if (walk&&dragonhealth>0)
         {
 
@@ -102,7 +111,7 @@ public class Doragon : MonoBehaviour
                 Charapter.Souls++;
                 _animator.SetTrigger("Die");
                 DeathSound.Play();
-                Destroy(FivthWall);
+                FivthWall.SetActive(false);
             }
         }
     }

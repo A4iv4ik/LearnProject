@@ -15,7 +15,6 @@ public class Charapter : MonoBehaviour
     [SerializeField] bool rayCast;
     [SerializeField] private AudioSource swordsound;
     [SerializeField] private AudioSource DeathSound;
-    [SerializeField] private AudioSource Walking;
     [SerializeField] private GameObject Deathpicture;
     [SerializeField] private float _MouseSensetive;
     [SerializeField] public static int Souls=0;
@@ -34,6 +33,7 @@ public class Charapter : MonoBehaviour
 
     private void Awake()
     {
+        Deathpicture.SetActive(false);
         health = MAXhealhh;
         slider.maxValue = health;
         rg = GetComponent<Rigidbody>();
