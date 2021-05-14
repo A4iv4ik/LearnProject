@@ -13,7 +13,7 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]private GameObject Axe;
     [SerializeField] private AudioSource Deathsound;
     [SerializeField] private AudioSource AttackSound;
-    [SerializeField]private float Health=50f;
+    [SerializeField]private float Health=30f;
     [SerializeField]private AudioSource getdamage;
     private Color color;
     private bool attackcd=true;
