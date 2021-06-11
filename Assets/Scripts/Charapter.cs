@@ -128,6 +128,10 @@ public class Charapter : MonoBehaviour
             StartCoroutine(death());
             Deathpicture.SetActive(true);
             DeathSound.Play();
+            Souls = 0;
+            UPdamage =1f;
+            speed = 4f;
+            _animator.SetTrigger("IsDie");
         }
     }
     private IEnumerator death()

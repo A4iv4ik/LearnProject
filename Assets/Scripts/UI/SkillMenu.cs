@@ -9,16 +9,19 @@ public class SkillMenu : Charapter
     {
         if (Souls >= 3)
         {
-            Charapter.UPdamage++;
-        Charapter.Souls = Charapter.Souls - 3;
+            UPdamage=UPdamage+0.1f;
+        Souls = Souls - 3;
         }
     }
     public void SpeedUp()
     {
         if (Souls >= 3)
-        { 
-            speed = speed + 1f;
+        {
+            if (speed<10f)
+            {
+            speed = speed + 0.5f;
             Souls = Souls - 3;
+            }
         }
     }
     public void Heal()

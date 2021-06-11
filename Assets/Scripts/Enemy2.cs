@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy2 : MonoBehaviour
 
@@ -16,6 +17,8 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private float Health=20;
     [SerializeField] private AudioSource getdamage;
     [SerializeField]private bool hurt;
+    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject HProtater;
     private Color color;
     private bool attackcd=true;
     private Vector3 _targetpoint;
@@ -24,6 +27,7 @@ public class Enemy2 : MonoBehaviour
 
     void Start()
     {
+        slider.maxValue = Health;
         StartCoroutine(Fire());
         navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -31,6 +35,8 @@ public class Enemy2 : MonoBehaviour
 
     void Update()
     {
+        slider.value = Health;
+        HProtater.transform.LookAt(_player);
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false&&attackcd)
         {
             StartCoroutine(Getattack());
@@ -106,7 +112,7 @@ public class Enemy2 : MonoBehaviour
     private IEnumerator Getattack()
     {
         
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         hurt = false;
         attackcd = true;
     }

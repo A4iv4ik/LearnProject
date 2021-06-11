@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class Enemy1 : MonoBehaviour
@@ -10,11 +11,13 @@ public class Enemy1 : MonoBehaviour
     public Transform[] waypoints;
     private Transform _player;
     private Animator _animator;
-    [SerializeField]private GameObject Axe;
+    [SerializeField] private GameObject Axe;
     [SerializeField] private AudioSource Deathsound;
     [SerializeField] private AudioSource AttackSound;
-    [SerializeField]private float Health=30f;
-    [SerializeField]private AudioSource getdamage;
+    [SerializeField] private float Health = 30f;
+    [SerializeField] private AudioSource getdamage;
+    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject HProtater;
     private Color color;
     private bool attackcd=true;
     private Vector3 _targetpoint;
@@ -29,9 +32,12 @@ public class Enemy1 : MonoBehaviour
         _animator = GetComponent<Animator>();
         navMeshAgent.SetDestination(waypoints[0].position);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        slider.maxValue = Health;
     }
     private void Update()
     {
+        slider.value = Health;
+        HProtater.transform.LookAt(_player.transform);
         if (Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)==false && attackcd)
         {
             hurt = true;
