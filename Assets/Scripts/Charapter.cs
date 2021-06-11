@@ -19,11 +19,14 @@ public class Charapter : MonoBehaviour
     [SerializeField] private float _MouseSensetive;
     [SerializeField] public static int Souls=0;
     [SerializeField] private Text Soul;
+    [SerializeField] private GameObject SoulSupport;
     Vector3 _direction = Vector3.zero;
+    private bool FirstSoul=true;
+    private bool AlreadyDead=true;
     public static float MAXhealhh = 1000f;
-    public static float health = 1000f;
+    public static float health = 1f;
     public static float speed = 4f;
-    public static float UPdamage =10000f;
+    public static float UPdamage =1f;
     private  bool attackcd=true;
     private bool ishield;
     private float damage;
@@ -33,6 +36,7 @@ public class Charapter : MonoBehaviour
 
     private void Awake()
     {
+        SoulSupport.SetActive(false);
         Deathpicture.SetActive(false);
         health = MAXhealhh;
         slider.maxValue = health;
@@ -42,6 +46,12 @@ public class Charapter : MonoBehaviour
 
     void Update()
     {
+        if (Souls==1 && FirstSoul)
+        {
+            FirstSoul = false;
+            SoulSupport.SetActive(true);
+            StartCoroutine(SoulSupportIe());
+        }
         Soul.text = $"Souls:{Souls}"; 
         slider.value = health;
          rayCast = Physics.Raycast(transform.position+Vector3.up/100,Vector3.down, 0.5f);
@@ -123,11 +133,12 @@ public class Charapter : MonoBehaviour
     }
     private void Death()
     {
-        if (health<=0)
+        if (health<=0&&AlreadyDead)
         {
+            AlreadyDead = false;
+            DeathSound.Play();
             StartCoroutine(death());
             Deathpicture.SetActive(true);
-            DeathSound.Play();
             Souls = 0;
             UPdamage =1f;
             speed = 4f;
@@ -144,6 +155,11 @@ public class Charapter : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         attackcd = true;
+    }
+    private IEnumerator SoulSupportIe()
+    {
+        yield return new WaitForSeconds(6f);
+        SoulSupport.SetActive(false);
     }
 }
 

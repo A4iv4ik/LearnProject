@@ -26007,6 +26007,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 621326847}
     - target: {fileID: 8857830511333333392, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
+      propertyPath: SoulSupport
+      value: 
+      objectReference: {fileID: 2057927321}
+    - target: {fileID: 8857830511333333392, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: Deathpicture
       value: 
       objectReference: {fileID: 2057927321}
@@ -26028,15 +26032,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.54
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.77
+      value: -10.4
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.4
+      value: 10.21
       objectReference: {fileID: 0}
     - target: {fileID: 8857830511333333615, guid: 349eba11eea6d0b44a85a378173e082a, type: 3}
       propertyPath: m_LocalRotation.w
