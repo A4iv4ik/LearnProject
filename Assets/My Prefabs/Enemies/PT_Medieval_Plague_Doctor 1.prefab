@@ -2668,6 +2668,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6417905661885766230, guid: 8f8e638399d32514fbabd06f953dbd14, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7745756914908140011, guid: 8f8e638399d32514fbabd06f953dbd14, type: 3}
       propertyPath: m_RootOrder
       value: 3
