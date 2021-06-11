@@ -22,6 +22,7 @@ public class Doragon : MonoBehaviour
     [SerializeField] private AudioSource DeathSound;
     [SerializeField] private AudioSource WalkingSound;
     [SerializeField] private GameObject FivthWall;
+    private Vector3 walldir;
     private bool at1=true;
     private bool at2=true;
     private bool at3=true;
@@ -32,16 +33,22 @@ public class Doragon : MonoBehaviour
     private bool hurt;
     private bool attackcd = true;
     private bool FireOn;
-    public static bool SL; 
+    public static bool SL;
+    private bool walopen=false;
     
 
     private void Awake()
     {
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Slider.maxValue = dragonhealth;
     }
     private void FixedUpdate()
     {
+        if (walopen)
+          {
+        FivthWall.transform.Translate(0, 0.5f*Time.fixedDeltaTime, 0);
+         }
         if (SL)
         {
             dragonhealth = 1000;
@@ -58,6 +65,7 @@ public class Doragon : MonoBehaviour
     }
     private void Update()
     {
+        
         Slider.value = dragonhealth;
         if(Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) == false && attackcd)
         {
@@ -111,7 +119,9 @@ public class Doragon : MonoBehaviour
                 Charapter.Souls++;
                 _animator.SetTrigger("Die");
                 DeathSound.Play();
-                FivthWall.SetActive(false);
+                walopen = true;
+                StartCoroutine(OpenWall());
+                
             }
         }
     }
@@ -172,6 +182,11 @@ public class Doragon : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         walk = true;
+    }
+    IEnumerator OpenWall()
+    {
+        yield return new WaitForSeconds(6f);
+        walopen = false;
     }
     IEnumerator Atack2()
     {

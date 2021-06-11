@@ -5,31 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class EndOfGame : MonoBehaviour
 {
-    [SerializeField]private GameObject Panel;
-    [SerializeField]private AudioSource EndingSong;
-    [SerializeField] private GameObject _player;
-    [SerializeField] private Transform TPPoinnt;
     [SerializeField] private GameObject FiwthWall;
+    private bool walopen = false;
     private void Awake()
     {
-        Panel.SetActive(false);
+    }
+    private void FixedUpdate()
+    {
+        if (walopen)
+        {
+            FiwthWall.transform.Translate(0, -0.5f * Time.fixedDeltaTime, 0);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(TP());
-        EndingSong.Play();
-        FiwthWall.SetActive(true);
+        walopen = true;
+        StartCoroutine(OpenWall());
+        StartCoroutine(NewScene());
         transform.position = transform.position * 5;
     }
-    IEnumerator TP()
-    {
-        yield return new WaitForSeconds(3.5f);
-        Doragon.SL = true;
-        _player.transform.position = TPPoinnt.position;
-        yield return new WaitForSeconds(11f);
-        Panel.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(0);
-    }
     
+    IEnumerator OpenWall()
+    {
+        yield return new WaitForSeconds(6f);
+        walopen = false;
+    }
+    IEnumerator NewScene()
+    {
+        yield return new WaitForSeconds(8f);
+        SceneManager.LoadScene(3);
+    }
 }

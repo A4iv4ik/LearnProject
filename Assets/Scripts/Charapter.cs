@@ -23,7 +23,7 @@ public class Charapter : MonoBehaviour
     public static float MAXhealhh = 1000f;
     public static float health = 1000f;
     public static float speed = 4f;
-    public static float UPdamage =1f;
+    public static float UPdamage =10000f;
     private  bool attackcd=true;
     private bool ishield;
     private float damage;
