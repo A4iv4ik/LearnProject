@@ -131,7 +131,7 @@ public class Charapter : MonoBehaviour
             Souls = 0;
             UPdamage =1f;
             speed = 4f;
-            _animator.SetTrigger("IsDie");
+            //_animator.SetTrigger("IsDie");
         }
     }
     private IEnumerator death()
